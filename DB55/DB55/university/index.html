@@ -1,0 +1,154 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+ 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+
+    <link rel="stylesheet" href="fonts/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+
+
+      <!-- END header -->
+      <!-- END section -->
+
+      <div class="container site-section element-animate">
+          <div class="row justify-content-center mb-5">
+              <div class="col-md-7 text-center section-heading">
+                  <h2 class="text-primary heading">Teachers</h2>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit qui neque sint eveniet tempore sapiente.</p>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-md-6 col-lg-4">
+                  <div class="block-2">
+                      <div class="flipper">
+                          <div class="front" style="background-image: url(../images/person_3.jpg);">
+                              <div class="box">
+                                  <h2>Job Smith</h2>
+                                  <p>Laravel Expert</p>
+                              </div>
+                          </div>
+                          <div class="back">
+                              <!-- back content -->
+                              <blockquote>
+                                  <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.&rdquo;</p>
+                              </blockquote>
+                              <div class="author d-flex">
+                                  <div class="image mr-3 align-self-center">
+                                      <img src="images/person_3.jpg" alt="">
+                                  </div>
+                                  <div class="name align-self-center">Job Smith <span class="position">Laravel Expert</span></div>
+                              </div>
+                          </div>
+                      </div>
+                  </div> <!-- .flip-container -->
+              </div>
+              <div class="col-md-6 col-lg-4">
+                  <div class="block-2 ">
+                      <div class="flipper">
+                          <div class="front" style="background-image: url(../images/person_1.jpg);">
+                              <div class="box">
+                                  <h2>Mellissa Cruz</h2>
+                                  <p>JavaScript Guru</p>
+                              </div>
+                          </div>
+                          <div class="back">
+                              <!-- back content -->
+                              <blockquote>
+                                  <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.&rdquo;</p>
+                              </blockquote>
+                              <div class="author d-flex">
+                                  <div class="image mr-3 align-self-center">
+                                      <img src="images/person_1.jpg" alt="">
+                                  </div>
+                                  <div class="name align-self-center">Mellissa Cruz <span class="position">JavaScript Guru</span></div>
+                              </div>
+                          </div>
+                      </div>
+                  </div> <!-- .flip-container -->
+              </div>
+              <div class="col-md-6 col-lg-4">
+                  <div class="block-2">
+                      <div class="flipper">
+                          <div class="front" style="background-image: url(../images/person_2.jpg);">
+                              <div class="box">
+                                  <h2>Aldin Powell</h2>
+                                  <p>WordPress Ninja</p>
+                              </div>
+                          </div>
+                          <div class="back">
+                              <!-- back content -->
+                              <blockquote>
+                                  <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.&rdquo;</p>
+                              </blockquote>
+                              <div class="author d-flex">
+                                  <div class="image mr-3 align-self-center">
+                                      <img src="images/person_2.jpg" alt="">
+                                  </div>
+                                  <div class="name align-self-center">Aldin Powell <span class="position">WordPress Ninja</span></div>
+                              </div>
+                          </div>
+                      </div>
+                  </div> <!-- .flip-container -->
+              </div>
+          </div>
+      </div>
+      <!-- END .block-2 -->
+      <!-- loader -->
+      <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214" /></svg></div>
+      <script src="js/jquery-3.2.1.min.js"></script>
+      <script src="js/jquery-migrate-3.0.0.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/owl.carousel.min.js"></script>
+      <script src="js/jquery.waypoints.min.js"></script>
+      <script src="js/jquery.stellar.min.js"></script>
+      <script src="js/jquery.animateNumber.min.js"></script>
+
+      <script src="js/jquery.magnific-popup.min.js"></script>
+      <script src="js/main.js"></script>
+
+      div>
+      <p>
+          @Html.ActionLink("Create New", "Create")
+      </p>
+      </div>
+      <table class="table">
+          <tr>
+              <th>
+                  @Html.DisplayNameFor(model => model.Name)
+              </th>
+              <th></th>
+          </tr>
+
+          @foreach (var item in Model)
+          {
+          <tr>
+              <td>
+                  @Html.DisplayFor(modelItem => item.Name)
+              </td>
+              <td>
+                  @Html.ActionLink("Edit", "Edit", new { id = item.Id })|
+                  @Html.ActionLink("Delete", "Delete", new { id = item.Id })|
+                  @Html.ActionLink("Select", "SelectSymptoms", new { id = item.Id })
+              </td>
+          </tr>
+          }
+
+      </table>
+  </body>
+</html>

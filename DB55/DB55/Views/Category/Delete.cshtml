@@ -1,0 +1,72 @@
+﻿@model DB55.Models.CategoryViewModel
+
+@{
+    ViewBag.Title = "ختم کریں";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ختم کریں</h2>
+
+<h3></h3>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> ختم کریں Responsive Widget Template:: W3layouts</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Smart Login Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+    <script type="application/x-javascript">
+         addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+        function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Meta tag Keywords -->
+    <!-- css files -->
+    <link href="/SmartLogin/css/style.css" rel="stylesheet" type="text/css" media="all">
+    <!-- online-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900iSlabo+27px&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+    <!--//online-fonts -->
+
+</head>
+<body>
+    <div class="agileheader">
+        <h1>میڈیکل انسایکلوپیڈیا </h1>
+    </div>
+    <div class="main-w3l">
+        <div class="w3layouts-main">
+            <h2>ختم کریں</h2>
+
+            <div>
+                <h4></h4>
+                <hr />
+                <dl class="dl-horizontal">
+                    
+
+                    <dd style="color:white">
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
+
+                </dl>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-actions no-color">
+                        <input type="submit" value="ختم کریں" class="btn btn-default" /> |
+                        @Html.ActionLink("واپس فھرست پر جاییں", "Index")
+                    </div>
+                }
+                </div>
+                
+            </div>
+        </div>
+    <!--footer-->
+    <div class="footer-w3l">
+        <p> </p>
+    </div>
+    <!--//footer-->
+
+</body>
+
+@Scripts.Render("~/bundles/jqueryval")
+</html>
+

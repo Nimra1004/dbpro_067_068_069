@@ -1,0 +1,71 @@
+﻿@model DB55.Models.CategoryViewModel
+
+@{
+    ViewBag.Title = "تبریل کریں ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> رجسٹر Responsive Widget Template:: W3layouts</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Smart Login Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+    <script type="application/x-javascript">
+         addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+        function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Meta tag Keywords -->
+    <!-- css files -->
+    <link href="/SmartLogin/css/style.css" rel="stylesheet" type="text/css" media="all">
+    <!-- online-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900iSlabo+27px&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+    <!--//online-fonts -->
+
+</head>
+<body>
+    <div class="agileheader">
+        <h1>میڈیکل انسایکلوپیڈیا </h1>
+    </div>
+    <div class="main-w3l">
+        <div class="w3layouts-main">
+            <h2>تبریل کریں</h2>
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <hr />
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Id)
+
+                <div class="form-group">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    <div class="col-md-10">
+                       
+                    </div>
+                    
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-8">
+                        <input type="submit" value="محفوز کریں" class="btn btn-default" />
+                    </div>
+                </div>
+
+        }
+        <div>
+            @Html.ActionLink("واپس فھرست پر جاییں", "Index")
+        </div>
+     </div>
+    <!--footer-->
+    <div class="footer-w3l">
+        <p> </p>
+    </div>
+    <!--//footer-->
+
+</body>
+
+@Scripts.Render("~/bundles/jqueryval")
+</html>
+

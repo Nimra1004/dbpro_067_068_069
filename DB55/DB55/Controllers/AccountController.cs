@@ -76,14 +76,10 @@ namespace DB55.Controllers
             {
                 return View(model);
             }
-            if ((model.Email == "AdminUser@gmail.com") && (model.Password == "Admin@789"))
-            {
-                RedirectToLocal(returnUrl);
-                return RedirectToAction("About", "Home");
-            }
+            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            
             switch (result)
             {
                 case SignInStatus.Success:
@@ -141,14 +137,14 @@ namespace DB55.Controllers
                     return View(model);
             }
         }
-        
+
 
         //
         // GET: /Account/Register
         [AllowAnonymous]
         public ActionResult DoctorRegister()
         {
-            return View("DoctorRegister");
+            return View();
         }
 
         //
@@ -198,9 +194,9 @@ namespace DB55.Controllers
                     // return View(viewList);
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
-                    //string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    //var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    //await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
                     return RedirectToAction("Index", "Home");
                 }
@@ -218,7 +214,7 @@ namespace DB55.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View("Register");
+            return View();
         }
 
         //
@@ -246,13 +242,13 @@ namespace DB55.Controllers
                     registeruser.UserId = userdbmodel.Id;
                     if (model.Gender == "عورت")
                     {
-                        registeruser.Gender = 2;
+                        registeruser.Gender = 1;
                     }
                     else
                     {
-                        registeruser.Gender = 1;
+                        registeruser.Gender = 2;
                     }
-                    registeruser.Discriminator = 5;
+                    registeruser.Discriminator = 3;
                     db.People.Add(registeruser);
                     //viewList.Add(donor);
                     // db.RegisteredUsers.Add(donor);
@@ -260,9 +256,9 @@ namespace DB55.Controllers
                     // return View(viewList);
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
-                    //string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    //var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    //await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
                     return RedirectToAction("Index", "Home");
                 }
@@ -281,6 +277,7 @@ namespace DB55.Controllers
             if (userId == null || code == null)
             {
                 return View("Error");
+                
             }
             var result = await UserManager.ConfirmEmailAsync(userId, code);
             return View(result.Succeeded ? "ConfirmEmail" : "Error");

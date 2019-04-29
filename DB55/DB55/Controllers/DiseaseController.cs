@@ -15,8 +15,20 @@ namespace DB55.Controllers
         // GET: Disease
         public ActionResult Index()
         {
-
-            return View();
+            DB55Entities db = new DB55Entities();
+            List<Disease> list1 = db.Diseases.ToList();
+            List<DiseasesModel> viewList = new List<DiseasesModel>();
+            DiseasesModel obj = new DiseasesModel();
+            for(int i = 0; i < list1.Count(); i++)
+            {
+                Disease d = list1.ElementAt(i);
+                obj.Name = d.Name;
+                obj.CategoryId = d.CategoryId;
+                obj.PredictionID = d.PredictionID;
+                obj.Id = d.Id;
+                viewList.Add(obj);
+            }
+            return View(viewList);
 
         }
         [HttpGet]
@@ -32,7 +44,7 @@ namespace DB55.Controllers
             {
                 try
                 {
-
+                    
                     DB55Entities db = new DB55Entities();
                     int docID = 0;
                     int CatId = 0;
@@ -42,10 +54,10 @@ namespace DB55.Controllers
                     PersonModel obj = new PersonModel();
                     List<Person> list1 = db.People.ToList();
                     string Login = User.Identity.GetUserId();
-                    for (int i = 0; i < list1.Count(); i++)
+                    for ( int i = 0; i < list1.Count(); i++)
                     {
                         Person req = list1.ElementAt(i);
-                        if (req.UserId == Login)
+                        if ( req.UserId == Login)
                         {
                             docID = req.Id;
                         }
@@ -64,7 +76,7 @@ namespace DB55.Controllers
                         }
                     }
                     //----------------------------------------------------------------------
-
+                    
                     List<CategoryViewModel> viewlist3 = new List<CategoryViewModel>();
                     CategoryViewModel obj3 = new CategoryViewModel();
                     List<Lookup> list3 = db.Lookups.ToList();
@@ -72,7 +84,7 @@ namespace DB55.Controllers
                     for (int i = 0; i < list3.Count(); i++)
                     {
                         Lookup req = list3.ElementAt(i);
-                        if (req.Id == pred)
+                        if (req.Id == pred) 
                         {
                             predId = req.Id;
                         }
@@ -173,8 +185,8 @@ namespace DB55.Controllers
                 return View();
             }
         }
-
-        public ActionResult AddReason(ReasonModel model)
+        [HttpPost]
+        public ActionResult AddReason(int id, ReasonModel model)
         {
             if (ModelState.IsValid)
             {
@@ -196,11 +208,10 @@ namespace DB55.Controllers
                         }
                     }
                     //---------------------------------------------------------------------
-                    int dID = Convert.ToInt32(model.DiseaseId);
                     Reason r1 = new Reason();
                     r1.Name = model.Name;
                     r1.DoctorId = docID;
-                    r1.DiseaseId = model.DiseaseId;
+                    r1.DiseaseId = id;
                     db.Reasons.Add(r1);
                     db.SaveChanges();
 
@@ -248,7 +259,6 @@ namespace DB55.Controllers
                     Symptom s1 = new Symptom();
                     s1.Name = model.Name;
                     s1.DoctorId = docID;
-                    s1.DiseaseId = model.DiseaseId;
                     db.Symptoms.Add(s1);
                     db.SaveChanges();
 
@@ -295,7 +305,6 @@ namespace DB55.Controllers
                     //---------------------------------------------------------------------
                     Medicine m1 = new Medicine();
                     m1.Name = model.Name;
-                    m1.Details = model.Details;
                     m1.DoctorId = docID;
                     db.Medicines.Add(m1);
                     db.SaveChanges();
@@ -319,59 +328,10 @@ namespace DB55.Controllers
 
         }
         [HttpGet]
-        public ActionResult AddTreatment()
+        public ActionResult AddItems()
         {
-            return View("AddTreatment");
-        }
-        [HttpPost]
-        public ActionResult AddTreatment(Prediction model)
-        {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    DB55Entities db = new DB55Entities();
-                    //---------------------------------------------------------------------
-                    PredictedTreatment m1 = new PredictedTreatment();
 
-                    //---------------------------------------------------------------------
-                    m1.DiseaseId = model.DiseaseId;
-                    m1.MedicineId = model.MedicineId;
-
-                    db.PredictedTreatments.Add(m1);
-                    db.SaveChanges();
-
-                    db.SaveChanges();
-
-                    return RedirectToAction("Index", "Disease");
-                }
-                catch (DbEntityValidationException dbEx)
-                {
-                    foreach (var validationErrors in dbEx.EntityValidationErrors)
-                    {
-                        foreach (var validationError in validationErrors.ValidationErrors)
-                        {
-                            System.Console.WriteLine("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
-                        }
-                    }
-                }
-            }
             return View();
         }
-        private static List<SelectListItem> GetDiseaseId()
-        {
-            DB55Entities entities = new DB55Entities();
-            List<SelectListItem> listDiseases = (from p in entities.Diseases.AsEnumerable()
-                                                 select new SelectListItem
-                                                 {
-                                                     Text = p.Name,
-                                                     Value = p.Id.ToString()
-                                                 }).ToList();
-
-
-            //Add Default Item at First Position.
-            return listDiseases;
-        }
     }
-
 }

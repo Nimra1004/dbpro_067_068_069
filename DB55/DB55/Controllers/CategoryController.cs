@@ -85,17 +85,18 @@ namespace DB55.Controllers
 
                 foreach (SymptomsModel s in list)
                 {
+                    ShowDisease obj = new ShowDisease();
                     foreach (Disease d in list1)
                     {
                         if (s.ckecked == true && s.DiseaseId == d.Id)
                         {
-                            ShowDisease obj = new ShowDisease();
+                            
                             obj.Id = d.Id;
                             obj.DiseaseName = d.Name;
 
                             foreach (Lookup f in Lokup)
                             {
-                                if (f.Id == d.PredictionID && f.Category == "PredictionID")
+                                if (f.Id == d.PredictionID && f.Category == "بیماری کی قسم")
                                 {
                                     obj.PredictionName = f.Value;
                                 }
@@ -215,17 +216,26 @@ namespace DB55.Controllers
         // GET: Category/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            Category v = new Category();
+            List<Category> list = db.Categories.ToList();
+            v = db.Categories.Find(id);
+            CategoryViewModel n = new CategoryViewModel();
+            n.Id = v.Id;
+            n.Name = v.Name;
+            return View(n);
         }
 
         // POST: Category/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, CategoryViewModel model)
         {
             try
             {
-                // TODO: Add update logic here
-
+                Category v = new Category();
+                List<Category> list = db.Categories.ToList();
+                v = db.Categories.Find(id);
+                v.Name = model.Name;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
@@ -237,20 +247,32 @@ namespace DB55.Controllers
         // GET: Category/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            Category v = new Category();
+            List<Category> list = db.Categories.ToList();
+            v = db.Categories.Find(id);
+            CategoryViewModel n = new CategoryViewModel();
+            n.Name = v.Name;
+            n.Id = v.Id;
+
+            return View(n);
         }
 
         // POST: Category/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, CategoryViewModel model)
         {
             try
             {
-                // TODO: Add delete logic here
-
+                Category v = new Category();
+                v.Id = model.Id;
+                v.Name = model.Name;
+                List<Category> list = db.Categories.ToList();
+                v = db.Categories.Find(id);
+                db.Categories.Remove(v);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception ex)
             {
                 return View();
             }

@@ -4,7 +4,106 @@
     ViewBag.Title = "Select";
 }
 
-<h2>Select</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="images/icons/favicon.png" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link href="~/pato HTML5 blank images/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/themify/themify-icons.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <link href="~/pato HTML5 blank images/vendor/animate/animate.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+    <link href="~/pato HTML5 blank images/vendor/animsition/css/animsition.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+    <link href="~/pato HTML5 blank images/vendor/daterangepicker/daterangepicker.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/lightbox2/css/lightbox.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!--===============================================================================================-->
+</head>
+<body>
+<section class="section-ourmenu bg2-pattern p-t-115 p-b-120">
+    <div class="container">
+        <div class="title-section-ourmenu t-center m-b-22">
+            <span class="tit2 t-center">
+                Discover
+            </span>
+
+            <h3 class="tit5 t-center m-t-2">
+                Our Menu
+            </h3>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <!-- Item our menu -->
+                        <div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
+                            <img src="~/images/45.jpg" alt="IMG-MENU">
+
+                            <!-- Button2 -->
+                            <a href="#" class="btn2 flex-c-m txt5 ab-c-m size4">
+                                Lunch
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <!-- Item our menu -->
+                        <div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
+                            <img src="~/images/85.jpg" alt="IMG-MENU">
+
+                            <!-- Button2 -->
+                            <a href="#" class="btn2 flex-c-m txt5 ab-c-m size5">
+                                Dinner
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <!-- Item our menu -->
+                        <div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
+                            <img src="~/images/45.jpg" alt="IMG-MENU">
+
+                            <!-- Button2 -->
+                            <a href="#" class="btn2 flex-c-m txt5 ab-c-m size6">
+                                Happy Hour
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+                    </div>
+                </div>
+
+</section>
+
+
+<h2>دوا</h2>
 <table class="table">
     <tr>
         <th>
@@ -28,27 +127,28 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DiseaseName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DoctorName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PredictionName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CategoryName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReasonName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MedicineName)
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiseaseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoctorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PredictionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReasonName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MedicineName)
+            </td>
+        </tr>
+    }
 
 </table>

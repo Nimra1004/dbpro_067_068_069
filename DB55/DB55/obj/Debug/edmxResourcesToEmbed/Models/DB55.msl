@@ -117,6 +117,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="PredictedTreatments">
+      <EntityTypeMapping TypeName="DB55Model.PredictedTreatment">
+        <MappingFragment StoreEntitySet="PredictedTreatment">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MedicineId" ColumnName="MedicineId" />
+          <ScalarProperty Name="DiseaseId" ColumnName="DiseaseId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Reasons">
       <EntityTypeMapping TypeName="DB55Model.Reason">
         <MappingFragment StoreEntitySet="Reason">
@@ -146,20 +155,23 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="DB55Model.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <AssociationSetMapping Name="AspNetUserRoles" TypeName="DB55Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
       <EndProperty Name="AspNetRoles">
         <ScalarProperty Name="Id" ColumnName="RoleId" />
       </EndProperty>
       <EndProperty Name="AspNetUsers">
         <ScalarProperty Name="Id" ColumnName="UserId" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="PredictedTreatment" TypeName="DB55Model.PredictedTreatment" StoreEntitySet="PredictedTreatment">
-      <EndProperty Name="Disease">
-        <ScalarProperty Name="Id" ColumnName="DiseaseId" />
-      </EndProperty>
-      <EndProperty Name="Medicine">
-        <ScalarProperty Name="Id" ColumnName="MedicineId" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>
