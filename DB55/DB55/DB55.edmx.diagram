@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4e1dc0bf349d450ba3f18cbb70c61f4a" Name="Diagram1">
+        <EntityTypeShape EntityType="DB55Model.C__MigrationHistory" Width="1.5" PointX="8.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB55Model.AspNetRole" Width="1.5" PointX="1.5" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB55Model.AspNetUserClaim" Width="1.5" PointX="6" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB55Model.AspNetUserLogin" Width="1.5" PointX="6" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB55Model.AspNetUser" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB55Model.Category" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB55Model.Disease" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB55Model.Doctor" Width="1.5" PointX="8.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB55Model.Lookup" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB55Model.Medicine" Width="1.5" PointX="10.5" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB55Model.Person" Width="1.5" PointX="6" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB55Model.PredictedTreatment" Width="1.5" PointX="12.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB55Model.Reason" Width="1.5" PointX="10.5" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB55Model.Search" Width="1.5" PointX="6" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB55Model.Symptom" Width="1.5" PointX="10.5" PointY="9.75" IsExpanded="true" />
+        <AssociationConnector Association="DB55Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DB55Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DB55Model.FK__Person__UserId__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="DB55Model.FK__Search__UserId__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="DB55Model.FK__Disease__Categor__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="DB55Model.FK__Disease__DoctorI__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="DB55Model.FK__Disease__Predict__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="DB55Model.FK__Predicted__Disea__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="DB55Model.FK__Reason__DiseaseI__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="DB55Model.FK__Symptoms__Diseas__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="DB55Model.FK__Doctor__Id__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="DB55Model.FK__Medicine__Doctor__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="DB55Model.FK__Reason__DoctorId__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="DB55Model.FK__Symptoms__Doctor__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="DB55Model.FK__Person__Discrimi__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="DB55Model.FK__Person__Gender__25869641" ManuallyRouted="false" />
+        <AssociationConnector Association="DB55Model.FK__Predicted__Medic__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="DB55Model.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

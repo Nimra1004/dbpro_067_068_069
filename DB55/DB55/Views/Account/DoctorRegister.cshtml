@@ -1,0 +1,119 @@
+﻿@model DB55.Models.DoctorRegisterViewModel
+@{
+    ViewBag.Title = "DoctorRegister";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> رجسٹر Responsive Widget Template:: W3layouts</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Smart Login Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+    <script type="application/x-javascript">
+         addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+        function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Meta tag Keywords -->
+    <!-- css files -->
+    <link href="/SmartLogin/css/style.css" rel="stylesheet" type="text/css" media="all">
+    <!-- online-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900iSlabo+27px&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+    <!--//online-fonts -->
+</head>
+<body>
+    <div class="agileheader">
+        <h1>میڈیکل انسایکلوپیڈیا </h1>
+    </div>
+    <div class="main-w3l">
+        <div class="w3layouts-main">
+            <h2>رجسٹر کریں</h2>
+            @using (Html.BeginForm("DoctorRegister", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <hr />
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        @Html.TextBoxFor(m => m.FirstName1, new { @class = "form-control", @type = "text1", @placeholder = " پہلا نام لکھیں" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        @Html.TextBoxFor(m => m.LastName1, new { @class = "form-control", @type = "text2", @placeholder = "آخری نام لکھیں" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        @Html.TextBoxFor(m => m.Contact1, new { @class = "form-control", @type = "text3", @placeholder = "رابطہ نمبر" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        @Html.TextBoxFor(m => m.LiscenceNumber, new { @class = "form-control", @type = "text3", @placeholder = "لائسنس نمبر" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-9">
+                        @Html.DropDownListFor(x => x.Country1, DB55.Models.DoctorRegisterViewModel.CountryList1(), new { @class = "form-control", @type = "text3" })
+
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-9">
+                        @Html.DropDownListFor(x => x.Gender1, DB55.Models.DoctorRegisterViewModel.GenderList1(), new { @class = "form-control", @type = "text4" })
+
+                    </div>
+                </div>
+                <!--
+                <div class="col-md-10">
+
+                    @Html.RadioButtonFor(m => m.Gender1, "Male" )
+                    @Html.Label("Male" , new { @class = "form-control" })
+                    @Html.RadioButtonFor(m => m.Gender1, "Female" )
+                    @Html.Label("Female",new { @class = "form-control" })
+
+                </div>
+                    -->
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        @Html.TextBoxFor(m => m.Email1, new { @class = "form-control", @type = "email", @placeholder = "ای میل" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        @Html.PasswordFor(m => m.Password1, new { @class = "form-control", @placeholder = "پاسورڈ" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        @Html.PasswordFor(m => m.ConfirmPassword1, new { @class = "form-control", @placeholder = "پاسورڈ تصدیق کریں" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-8">
+                        <input type="submit" class="btn btn-default" value="رجسٹر" />
+                    </div>
+                </div>
+            }
+            <p>
+                @Html.ActionLink(" پہلے اکاؤنٹ بنا ہے ؟ لاگ ان کریں", "Login")
+            </p>
+        </div>
+    </div>
+    <!--footer-->
+    <div class="footer-w3l">
+        <p> </p>
+    </div>
+    <!--//footer-->
+
+</body>
+
+@Scripts.Render("~/bundles/jqueryval")
+</html>

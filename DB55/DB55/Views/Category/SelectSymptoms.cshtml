@@ -1,0 +1,34 @@
+﻿@model List<DB55.ViewModel.SymptomsModel>
+
+@{
+    ViewBag.Title = "SelectSymptoms";
+}
+
+<h2>SelectSymptoms</h2>
+@using (Html.BeginForm("SelectSymptoms", "Category", FormMethod.Post))
+{
+    <table>
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            <tr>
+                <td>
+                    @Html.CheckBoxFor(m => m[i].ckecked)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => m[i].Name)
+                    @Html.HiddenFor(m => m[i].Id)
+                    @Html.HiddenFor(m => m[i].DiseaseId)
+                    @Html.HiddenFor(m => m[i].DoctorId)
+                </td>
+            </tr>
+        }
+    </table>
+    <br />
+    //<input type="submit" value="Submit" />
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-4">
+        <input type="submit" class="btn btn-default" value="Submit" />
+    </div>
+</div>
+}

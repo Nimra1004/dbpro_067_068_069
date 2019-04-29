@@ -1,0 +1,483 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB55Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Disease">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DoctorId" Type="int" Nullable="false" />
+    <Property Name="PredictionID" Type="int" Nullable="false" />
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Doctor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="LicenseNumber" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Lookup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Value" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Category" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Medicine">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Details" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DoctorId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Contact" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Country" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="int" Nullable="false" />
+    <Property Name="Discriminator" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PredictedTreatment">
+    <Key>
+      <PropertyRef Name="MedicineId" />
+      <PropertyRef Name="DiseaseId" />
+    </Key>
+    <Property Name="MedicineId" Type="int" Nullable="false" />
+    <Property Name="DiseaseId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Reason">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DoctorId" Type="int" Nullable="false" />
+    <Property Name="DiseaseId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Search">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="100" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Symptoms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DoctorId" Type="int" Nullable="false" />
+    <Property Name="DiseaseId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Disease__Categor__0D7A0286">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="Disease" Type="Self.Disease" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Disease">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Disease__DoctorI__0B91BA14">
+    <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
+    <End Role="Disease" Type="Self.Disease" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doctor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Disease">
+        <PropertyRef Name="DoctorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Disease__Predict__0C85DE4D">
+    <End Role="Lookup" Type="Self.Lookup" Multiplicity="1" />
+    <End Role="Disease" Type="Self.Disease" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lookup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Disease">
+        <PropertyRef Name="PredictionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Doctor__Id__08B54D69">
+    <End Role="Person" Type="Self.Person" Multiplicity="1" />
+    <End Role="Doctor" Type="Self.Doctor" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Doctor">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Medicine__Doctor__17F790F9">
+    <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
+    <End Role="Medicine" Type="Self.Medicine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doctor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Medicine">
+        <PropertyRef Name="DoctorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Person__Discrimi__03F0984C">
+    <End Role="Lookup" Type="Self.Lookup" Multiplicity="1" />
+    <End Role="Person" Type="Self.Person" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lookup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Person">
+        <PropertyRef Name="Discriminator" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Person__Gender__02FC7413">
+    <End Role="Lookup" Type="Self.Lookup" Multiplicity="1" />
+    <End Role="Person" Type="Self.Person" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lookup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Person">
+        <PropertyRef Name="Gender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Person__UserId__04E4BC85">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="Person" Type="Self.Person" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Person">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Predicted__Disea__1BC821DD">
+    <End Role="Disease" Type="Self.Disease" Multiplicity="1" />
+    <End Role="PredictedTreatment" Type="Self.PredictedTreatment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Disease">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PredictedTreatment">
+        <PropertyRef Name="DiseaseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Predicted__Medic__1AD3FDA4">
+    <End Role="Medicine" Type="Self.Medicine" Multiplicity="1" />
+    <End Role="PredictedTreatment" Type="Self.PredictedTreatment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medicine">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PredictedTreatment">
+        <PropertyRef Name="MedicineId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Reason__DiseaseI__114A936A">
+    <End Role="Disease" Type="Self.Disease" Multiplicity="1" />
+    <End Role="Reason" Type="Self.Reason" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Disease">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reason">
+        <PropertyRef Name="DiseaseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Reason__DoctorId__10566F31">
+    <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
+    <End Role="Reason" Type="Self.Reason" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doctor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reason">
+        <PropertyRef Name="DoctorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Search__UserId__1EA48E88">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="Search" Type="Self.Search" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Search">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Symptoms__Diseas__151B244E">
+    <End Role="Disease" Type="Self.Disease" Multiplicity="1" />
+    <End Role="Symptoms" Type="Self.Symptoms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Disease">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Symptoms">
+        <PropertyRef Name="DiseaseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Symptoms__Doctor__14270015">
+    <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
+    <End Role="Symptoms" Type="Self.Symptoms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doctor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Symptoms">
+        <PropertyRef Name="DoctorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DB55ModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Disease" EntityType="Self.Disease" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Lookup" EntityType="Self.Lookup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Medicine" EntityType="Self.Medicine" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PredictedTreatment" EntityType="Self.PredictedTreatment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reason" EntityType="Self.Reason" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Search" EntityType="Self.Search" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Symptoms" EntityType="Self.Symptoms" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Disease__Categor__0D7A0286" Association="Self.FK__Disease__Categor__0D7A0286">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Disease" EntitySet="Disease" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Disease__DoctorI__0B91BA14" Association="Self.FK__Disease__DoctorI__0B91BA14">
+      <End Role="Doctor" EntitySet="Doctor" />
+      <End Role="Disease" EntitySet="Disease" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Disease__Predict__0C85DE4D" Association="Self.FK__Disease__Predict__0C85DE4D">
+      <End Role="Lookup" EntitySet="Lookup" />
+      <End Role="Disease" EntitySet="Disease" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Doctor__Id__08B54D69" Association="Self.FK__Doctor__Id__08B54D69">
+      <End Role="Person" EntitySet="Person" />
+      <End Role="Doctor" EntitySet="Doctor" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Medicine__Doctor__17F790F9" Association="Self.FK__Medicine__Doctor__17F790F9">
+      <End Role="Doctor" EntitySet="Doctor" />
+      <End Role="Medicine" EntitySet="Medicine" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Person__Discrimi__03F0984C" Association="Self.FK__Person__Discrimi__03F0984C">
+      <End Role="Lookup" EntitySet="Lookup" />
+      <End Role="Person" EntitySet="Person" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Person__Gender__02FC7413" Association="Self.FK__Person__Gender__02FC7413">
+      <End Role="Lookup" EntitySet="Lookup" />
+      <End Role="Person" EntitySet="Person" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Person__UserId__04E4BC85" Association="Self.FK__Person__UserId__04E4BC85">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Person" EntitySet="Person" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Predicted__Disea__1BC821DD" Association="Self.FK__Predicted__Disea__1BC821DD">
+      <End Role="Disease" EntitySet="Disease" />
+      <End Role="PredictedTreatment" EntitySet="PredictedTreatment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Predicted__Medic__1AD3FDA4" Association="Self.FK__Predicted__Medic__1AD3FDA4">
+      <End Role="Medicine" EntitySet="Medicine" />
+      <End Role="PredictedTreatment" EntitySet="PredictedTreatment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reason__DiseaseI__114A936A" Association="Self.FK__Reason__DiseaseI__114A936A">
+      <End Role="Disease" EntitySet="Disease" />
+      <End Role="Reason" EntitySet="Reason" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reason__DoctorId__10566F31" Association="Self.FK__Reason__DoctorId__10566F31">
+      <End Role="Doctor" EntitySet="Doctor" />
+      <End Role="Reason" EntitySet="Reason" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Search__UserId__1EA48E88" Association="Self.FK__Search__UserId__1EA48E88">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Search" EntitySet="Search" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Symptoms__Diseas__151B244E" Association="Self.FK__Symptoms__Diseas__151B244E">
+      <End Role="Disease" EntitySet="Disease" />
+      <End Role="Symptoms" EntitySet="Symptoms" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Symptoms__Doctor__14270015" Association="Self.FK__Symptoms__Doctor__14270015">
+      <End Role="Doctor" EntitySet="Doctor" />
+      <End Role="Symptoms" EntitySet="Symptoms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<DB55.ViewModel.ShowDisease>
+
+@{
+    ViewBag.Title = "Select";
+}
+
+<h2>Select</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DiseaseName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DoctorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PredictionName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReasonName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MedicineName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiseaseName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DoctorName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PredictionName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReasonName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MedicineName)
+        </td>
+    </tr>
+}
+
+</table>
