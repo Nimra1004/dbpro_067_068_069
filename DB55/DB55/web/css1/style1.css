@@ -4,13 +4,13 @@
 	License: Creative Commons Attribution 3.0 Unported
 	License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
-
+@import url(http://fonts.googleapis.com/earlyaccess/notonastaliqurdudraft.css);
 html,
 body {
     margin: 0;
     font-size: 100%;
     background: #003b64;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Noto Nastaliq Urdu Draft', serif;
     scroll-behavior: smooth;
 }
 

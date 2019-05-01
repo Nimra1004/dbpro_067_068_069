@@ -1,34 +1,78 @@
-﻿@model IEnumerable<DB55.ViewModel.DiseasesModel>
-
+﻿
+@model DB55.ViewModel.Prediction
 @{
+    /**/
+
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> فہرست دیکھیں Responsive Widget Template:: W3layouts</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Smart Login Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+    <script type="application/x-javascript">
+         addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+        function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Meta tag Keywords -->
+    <!-- css files -->
+    <link href="/SmartLogin/css/style.css" rel="stylesheet" type="text/css" media="all">
+    <!-- online-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900iSlabo+27px&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+    <!--//online-fonts -->
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        
-    </tr>
+</head>
+<body>
+    <div class="agileheader">
+        <h1>میڈیکل انسایکلوپیڈیا </h1>
+    </div>
+    <div class="main-w3l">
+        <div class="w3layouts-main">
+            <h2>فہرست دیکھیں</h2>
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <hr />
+                
+                <div class="form-group">
+                    <div class="col-md-offset-1 col-md-10">
+                        <button onclick="location.href='@Url.Action("AddDisease", "Disease")';return false;" class="btn btn-default">بیماری ایڈ کریں</button>
+                    </div>                   
+                </div>
+                <div class="form-group">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        
-        <td>
-            @Html.ActionLink("Add Reason", "AddReason", new {id=item.Id}) |
-            @Html.ActionLink("Add Symptoms", "AddSymptom", new { id = item.Id }) |
-            @Html.ActionLink("Add Treatement", "AddMedicine", new { id = item.Id })
-        </td>
-    </tr>
-}
+                    <div class="col-md-offset-1 col-md-10">
+                        <button onclick="location.href='@Url.Action("AddReason", "Disease")';return false;" class="btn btn-default">وجہ اید کریں</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-1 col-md-10">
+                        <button onclick="location.href='@Url.Action("AddSymptom", "Disease")';return false;" class="btn btn-default">علامات ایڈ کریں</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-1 col-md-10">
+                        <button onclick="location.href='@Url.Action("AddMedicine", "Disease")';return false;" class="btn btn-default">دوا ایڈ کریں</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-1 col-md-10">
+                        <button onclick="location.href='@Url.Action("AddTreatment", "Disease")';return false;" class="btn btn-default" htmlAttributes: new { size = "4", style = "width:500px, height:100px" }>علاج ایڈ کریں</button>
+                    </div>
+                </div>
+            }
+        </div>
+        <!--footer-->
+        <div class="footer-w3l">
+            <p> </p>
+        </div>
+        <!--//footer-->
 
-</table>
+</body>
+
+@Scripts.Render("~/bundles/jqueryval")
+</html>

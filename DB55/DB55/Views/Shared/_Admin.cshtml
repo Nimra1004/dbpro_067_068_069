@@ -9,7 +9,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Augment an Admin Panel Category Flat Bootstrap Responsive Web Template | Home :: w3layouts</title>
+    <title>میڈیکل انسایکلوپیڈیا </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Augment Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
@@ -52,7 +52,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 @RenderBody()
                 <!--footer section start-->
                 <footer>
-                    <p> @DateTime.Now &copy | میڈیکل انسایکلوپیڈیا target="_blank"></a></p>
+                    <p> @DateTime.Now &copy | میڈیکل انسایکلوپیڈیا</p>
                 </footer>
                 <!--footer section end-->
             
@@ -72,16 +72,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <img src="/Admin/images/admin.jpg">
                 <span class=" name-caret"></span>
                 <p>ایڈمنسٹریٹر</p>
-                <ul>
+                @*<ul>
                     <li>@Html.ActionLink("پروفایل", "Register", "Account", new { @class = "tooltips" })<span></span><i class="lnr lnr-user"></i></li>
-                    <li><a class="tooltips" href="index.html"><span>Settings</span><i class="lnr lnr-cog"></i></a></li>
+                    <li><a class="tooltips" href="#"><span>Settings</span><i class="lnr lnr-cog"></i></a></li>
                     <li><a class="tooltips" href="index.html"><span>Log out</span><i class="lnr lnr-power-switch"></i></a></li>
-                </ul>
+                </ul>*@
             </div>
             <!--//down-->
             <div class="menu">
                 <ul id="menu">
-                    <li>@Html.ActionLink("ڈیش بورڈ", "Register", "Account")<span></span></li>
+                    <li>@Html.ActionLink("ڈیش بورڈ", "About", "Home")<span></span></li>
                     <li id="menu-academico">
                         <a href="#"><i class="fa fa-table"></i> <span> بیماری</span> <span class="fa fa-angle-right" style="float: right"></span></a>
                         <ul id="menu-academico-sub">
@@ -99,25 +99,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <li id="menu-academico-boletim">@Html.ActionLink("علاج", "Register", "Account")</li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="#"><i class="lnr lnr-envelope"></i> <span>میل باکس</span><span class="fa fa-angle-right" style="float: right"></span></a>
-                        <ul>
-                            <li>@Html.ActionLink("ان باکس", "Register", "Account")</li>
-                            <li>@Html.ActionLink(" میل لکھیں", "Register", "Account")</li>
-                            <li>@Html.ActionLink("ایڈٹ کریں", "Register", "Account")</li>
-
-                        </ul>
-                    </li>
                     <li id="menu-comunicacao">
                         <a href="#"><i class="fa fa-smile-o"></i> <span>مزید</span><span class="fa fa-angle-double-right" style="float: right"></span></a>
                         <ul id="menu-comunicacao-sub">
                             <li id="menu-mensagens" style="width:120px">
                                 <a href="project.html">رپورٹس <i class="fa fa-angle-right" style="float: right; margin-right: -8px; margin-top: 2px;"></i></a>
                                 <ul id="menu-mensagens-sub">
-                                    <li id="menu-mensagens-enviadas" style="width:130px">@Html.ActionLink("ورڈ","Register","Account")</li>
+                                    <li id="menu-mensagens-enviadas" style="width:130px">@Html.ActionLink("ورڈ", "Register", "Account")</li>
                                     <li id="menu-mensagens-recebidas" style="width:130px">@Html.ActionLink("پیڈی ایف", "Register", "Account")</li>
                                 </ul>
                             </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="lnr lnr-power-switch"></i> <span>لاگ آف</span><span class="fa fa-angle-right" style="float: right"></span></a>
+                        <ul>
+                            <li>@Html.ActionLink("لاگ آف", "Index", "Home")</li>
+
                         </ul>
                     </li>
                 </ul>

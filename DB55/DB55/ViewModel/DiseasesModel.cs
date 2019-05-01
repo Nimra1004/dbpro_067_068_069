@@ -14,31 +14,36 @@ namespace DB55.ViewModel
         public int DoctorId { get; set; }
         public int PredictionID { get; set; }
         public int CategoryId { get; set; }
-
-        public static IEnumerable<SelectListItem> GetPredictionId()
+        
+        public static List<SelectListItem> GetPredictionId()
         {
-            IList<SelectListItem> items = new List<SelectListItem>
-            {
-                new  SelectListItem{Text = "بیماری", Value = "6" },
-                new  SelectListItem{Text = "حالت", Value = "7" },
-            };
-            return items;
+            DB55Entities entities = new DB55Entities();
+            List<SelectListItem> listDiseases = (from p in entities.Lookups.AsEnumerable()
+                                                 select new SelectListItem
+                                                 {
+                                                     Text = p.Value,
+                                                     Value = p.Id.ToString()
+                                                 }).ToList();
+
+
+            //Add Default Item at First Position.
+            return listDiseases;
         }
 
-        public static IEnumerable<SelectListItem> GetCategoryId()
+        public static List<SelectListItem> GetCategoryId()
         {
-            IList<SelectListItem> items = new List<SelectListItem>
-            {
-                new  SelectListItem{Text = "سر", Value = "1" },
-                new  SelectListItem{Text = "ٹانگ", Value = "2" },
-                new  SelectListItem{Text = "پیٹ", Value = "3" },
-                new  SelectListItem{Text = "منہ", Value = "4" },
-                new  SelectListItem{Text = "آنکھ", Value = "5" },
-                new  SelectListItem{Text = "ناک", Value = "6" },
-                new  SelectListItem{Text = "پاؤں", Value = "7" },
+            DB55Entities entities = new DB55Entities();
+            List<SelectListItem> listDiseases = (from p in entities.Categories.AsEnumerable()
+                                                 select new SelectListItem
+                                                 {
+                                                     Text = p.Name,
+                                                     Value = p.Id.ToString()
+                                                 }).ToList();
 
-            };
-            return items;
+
+            //Add Default Item at First Position.
+            return listDiseases;
         }
+
     }
 }
