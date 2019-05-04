@@ -63,7 +63,7 @@
                             </div>
                         </div>
                     </div>
-                </div> <!-- .flip-container --> 
+                </div> <!-- .flip-container -->
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="block-2 ">
@@ -116,35 +116,38 @@
         </div>
     </div>
     <!-- END .block-2 -->
-    <!-- loader -->
-    <div>
-        <p>
-            @Html.ActionLink("Create New", "Create")
-        </p>
-    </div>
-    <table class="table" style="border:groove"; width="500">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-        </tr>
 
-        @foreach (var item in Model)
-        {
-        <tr>
-            <td>
-                @Html.ActionLink("تبدیل کریں ", "Edit", new { id = item.Id })|
-                @Html.ActionLink("ختم کریں", "Delete", new { id = item.Id })|
+    <div class="block-24 mb-5">
+        <h3 class="heading">Categories</h3>
+        <div>
+            <p>
+                @Html.ActionLink("Create New", "Create")
+            </p>
+        </div>
+        <div>
+            @Html.DisplayNameFor(model => model.Name)
+        </div>
+        <div>
+            <br />
+
+            @foreach (var item in Model)
+            {
+                @Html.ActionLink("تبدیل کریں ", "Edit", new { id = item.Id })
+                @Html.ActionLink("ختم کریں", "Delete", new { id = item.Id })
                 @Html.ActionLink("منتخب کریں", "SelectSymptoms", new { id = item.Id })
-            </td>
-            <td>
+                <div>
+                         
+                </div>
                 @Html.DisplayFor(modelItem => item.Name)
-            </td>
-        </tr>
-        }
+                <br />
+            }
+        </div>
 
 
-    </table>
+
+    </div>
+    <!-- loader -->
+    
     <script src="/University/js/jquery-3.2.1.min.js"></script>
     <script src="/University/js/jquery-migrate-3.0.0.js"></script>
     <script src="/University/js/popper.min.js"></script>
