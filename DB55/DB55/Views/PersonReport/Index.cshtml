@@ -1,0 +1,46 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h3>صارفین</h3>
+    <table cellpadding="2" cellspacing="2" border="1">
+        <tr>
+            <th>Id</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Contact</th>
+            <th>Country</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>Discriminator</th>
+           
+        </tr>
+        @foreach(var p in ViewBag.ListPersons)
+        {
+        <tr>
+            <th>@p.Id</th>
+            <th>@p.FirstName</th>
+            <th>@p.LastName</th>
+            <th>@p.Contact</th>
+            <th>@p.Country</th>
+            <th>@p.Email</th>
+            <th>@p.Gender</th>
+            <th>@p.Discriminator</th>
+           
+        </tr>
+        }
+
+    </table>
+    <br><br>
+    <a href="@Url.Action("Export","PersonReport")">Export Report</a>
+</body>
+</html>
