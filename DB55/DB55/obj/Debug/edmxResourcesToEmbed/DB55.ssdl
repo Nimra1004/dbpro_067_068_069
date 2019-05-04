@@ -204,7 +204,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Medicine__Doctor__3E52440B">
+  <Association Name="FK__Medicine__Doctor__3A81B327">
     <End Role="Doctor" Type="Self.Doctor" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
@@ -256,7 +256,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Predicted__Disea__45F365D3">
+  <Association Name="FK__Predicted__Disea__3E52440B">
     <End Role="Disease" Type="Self.Disease" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
@@ -270,7 +270,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Predicted__Medic__44FF419A">
+  <Association Name="FK__Predicted__Medic__3D5E1FD2">
     <End Role="Medicine" Type="Self.Medicine" Multiplicity="1" />
     <End Role="PredictedTreatment" Type="Self.PredictedTreatment" Multiplicity="*" />
     <ReferentialConstraint>
@@ -282,7 +282,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Reason__DiseaseI__37A5467C">
+  <Association Name="FK__Reason__DiseaseI__33D4B598">
     <End Role="Disease" Type="Self.Disease" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
@@ -296,7 +296,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Reason__DoctorId__36B12243">
+  <Association Name="FK__Reason__DoctorId__32E0915F">
     <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
     <End Role="Reason" Type="Self.Reason" Multiplicity="*" />
     <ReferentialConstraint>
@@ -308,7 +308,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Search__UserId__48CFD27E">
+  <Association Name="FK__Search__UserId__412EB0B6">
     <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
@@ -322,7 +322,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Symptoms__Diseas__3B75D760">
+  <Association Name="FK__Symptoms__Diseas__37A5467C">
     <End Role="Disease" Type="Self.Disease" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
@@ -336,7 +336,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Symptoms__Doctor__3A81B327">
+  <Association Name="FK__Symptoms__Doctor__36B12243">
     <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
     <End Role="Symptoms" Type="Self.Symptoms" Multiplicity="*" />
     <ReferentialConstraint>
@@ -437,7 +437,7 @@
       <End Role="Person" EntitySet="Person" />
       <End Role="Doctor" EntitySet="Doctor" />
     </AssociationSet>
-    <AssociationSet Name="FK__Medicine__Doctor__3E52440B" Association="Self.FK__Medicine__Doctor__3E52440B">
+    <AssociationSet Name="FK__Medicine__Doctor__3A81B327" Association="Self.FK__Medicine__Doctor__3A81B327">
       <End Role="Doctor" EntitySet="Doctor" />
       <End Role="Medicine" EntitySet="Medicine" />
     </AssociationSet>
@@ -453,31 +453,31 @@
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="Person" EntitySet="Person" />
     </AssociationSet>
-    <AssociationSet Name="FK__Predicted__Disea__45F365D3" Association="Self.FK__Predicted__Disea__45F365D3">
+    <AssociationSet Name="FK__Predicted__Disea__3E52440B" Association="Self.FK__Predicted__Disea__3E52440B">
       <End Role="Disease" EntitySet="Disease" />
       <End Role="PredictedTreatment" EntitySet="PredictedTreatment" />
     </AssociationSet>
-    <AssociationSet Name="FK__Predicted__Medic__44FF419A" Association="Self.FK__Predicted__Medic__44FF419A">
+    <AssociationSet Name="FK__Predicted__Medic__3D5E1FD2" Association="Self.FK__Predicted__Medic__3D5E1FD2">
       <End Role="Medicine" EntitySet="Medicine" />
       <End Role="PredictedTreatment" EntitySet="PredictedTreatment" />
     </AssociationSet>
-    <AssociationSet Name="FK__Reason__DiseaseI__37A5467C" Association="Self.FK__Reason__DiseaseI__37A5467C">
+    <AssociationSet Name="FK__Reason__DiseaseI__33D4B598" Association="Self.FK__Reason__DiseaseI__33D4B598">
       <End Role="Disease" EntitySet="Disease" />
       <End Role="Reason" EntitySet="Reason" />
     </AssociationSet>
-    <AssociationSet Name="FK__Reason__DoctorId__36B12243" Association="Self.FK__Reason__DoctorId__36B12243">
+    <AssociationSet Name="FK__Reason__DoctorId__32E0915F" Association="Self.FK__Reason__DoctorId__32E0915F">
       <End Role="Doctor" EntitySet="Doctor" />
       <End Role="Reason" EntitySet="Reason" />
     </AssociationSet>
-    <AssociationSet Name="FK__Search__UserId__48CFD27E" Association="Self.FK__Search__UserId__48CFD27E">
+    <AssociationSet Name="FK__Search__UserId__412EB0B6" Association="Self.FK__Search__UserId__412EB0B6">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="Search" EntitySet="Search" />
     </AssociationSet>
-    <AssociationSet Name="FK__Symptoms__Diseas__3B75D760" Association="Self.FK__Symptoms__Diseas__3B75D760">
+    <AssociationSet Name="FK__Symptoms__Diseas__37A5467C" Association="Self.FK__Symptoms__Diseas__37A5467C">
       <End Role="Disease" EntitySet="Disease" />
       <End Role="Symptoms" EntitySet="Symptoms" />
     </AssociationSet>
-    <AssociationSet Name="FK__Symptoms__Doctor__3A81B327" Association="Self.FK__Symptoms__Doctor__3A81B327">
+    <AssociationSet Name="FK__Symptoms__Doctor__36B12243" Association="Self.FK__Symptoms__Doctor__36B12243">
       <End Role="Doctor" EntitySet="Doctor" />
       <End Role="Symptoms" EntitySet="Symptoms" />
     </AssociationSet>

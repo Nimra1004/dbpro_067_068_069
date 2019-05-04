@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -214,8 +217,10 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\DiseaseController.cs" />
+    <Compile Include="Controllers\DoctorDiseaseReportController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PersonReportController.cs" />
     <Compile Include="C__MigrationHistory.cs">
       <DependentUpon>DB55.tt</DependentUpon>
     </Compile>
@@ -251,8 +256,10 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CategoryViewModel.cs" />
+    <Compile Include="Models\DoctorViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\PersonViewModel.cs" />
     <Compile Include="Models\UserSymptom.cs" />
     <Compile Include="Person.cs">
       <DependentUpon>DB55.tt</DependentUpon>
@@ -263,6 +270,23 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reason.cs">
       <DependentUpon>DB55.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CrystalReportPerson.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportPerson.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\DataSetPerson.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetPerson.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DoctorDisease.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DoctorDisease.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Search.cs">
       <DependentUpon>DB55.tt</DependentUpon>
@@ -510,94 +534,63 @@
     <Content Include="SmartLogin\images\phone.png" />
     <Content Include="SmartLogin\index.html" />
     <Content Include="SmartLogin\w3layouts-License.txt" />
-    <Content Include="university\university\about.html" />
-    <Content Include="university\university\blog-single.html" />
-    <Content Include="university\university\blog.html" />
-    <Content Include="university\university\contact.html" />
-    <Content Include="university\university\course-single.html" />
-    <Content Include="university\university\courses.html" />
-    <Content Include="university\university\css\animate.css" />
-    <Content Include="university\university\css\bootstrap.css" />
-    <Content Include="university\university\css\magnific-popup.css" />
-    <Content Include="university\university\css\owl.carousel.min.css" />
-    <Content Include="university\university\css\style.css" />
-    <Content Include="university\university\fonts\flaticon\backup.txt" />
-    <Content Include="university\university\fonts\flaticon\font\flaticon.css" />
-    <Content Include="university\university\fonts\flaticon\font\flaticon.html" />
-    <Content Include="university\university\fonts\flaticon\font\Flaticon.svg" />
-    <Content Include="university\university\fonts\flaticon\font\_flaticon.css" />
-    <Content Include="university\university\fonts\fontawesome\css\font-awesome.min.css" />
-    <Content Include="university\university\fonts\fontawesome\fonts\fontawesome-webfont.svg" />
-    <Content Include="university\university\fonts\ionicons\cheatsheet.html" />
-    <Content Include="university\university\fonts\ionicons\css\ionicons.css" />
-    <Content Include="university\university\fonts\ionicons\css\ionicons.min.css" />
-    <Content Include="university\university\fonts\ionicons\fonts\ionicons.svg" />
-    <Content Include="university\university\images\angularjs.jpg" />
-    <Content Include="university\university\images\big_image_1.jpg" />
-    <Content Include="university\university\images\big_image_2.jpg" />
-    <Content Include="university\university\images\big_image_3.jpg" />
-    <Content Include="university\university\images\img_1.jpg" />
-    <Content Include="university\university\images\img_2.jpg" />
-    <Content Include="university\university\images\img_2_b.jpg" />
-    <Content Include="university\university\images\img_3.jpg" />
-    <Content Include="university\university\images\javascript.jpg" />
-    <Content Include="university\university\images\loc.png" />
-    <Content Include="university\university\images\person_1.jpg" />
-    <Content Include="university\university\images\person_2.jpg" />
-    <Content Include="university\university\images\person_3.jpg" />
-    <Content Include="university\university\images\person_4.jpg" />
-    <Content Include="university\university\images\person_5.jpg" />
-    <Content Include="university\university\images\person_6.jpg" />
-    <Content Include="university\university\images\person_testimonial_1.jpg" />
-    <Content Include="university\university\images\photoshop.jpg" />
-    <Content Include="university\university\images\reactjs.jpg" />
-    <Content Include="university\university\images\webdesign.jpg" />
-    <Content Include="university\university\images\wordpress.jpg" />
-    <Content Include="university\university\index.html" />
-    <Content Include="university\university\js\bootstrap.min.js" />
-    <Content Include="university\university\js\google-map.js" />
-    <Content Include="university\university\js\jquery-3.2.1.min.js" />
-    <Content Include="university\university\js\jquery-migrate-3.0.0.js" />
-    <Content Include="university\university\js\jquery.animateNumber.min.js" />
-    <Content Include="university\university\js\jquery.magnific-popup.min.js" />
-    <Content Include="university\university\js\jquery.stellar.min.js" />
-    <Content Include="university\university\js\jquery.waypoints.min.js" />
-    <Content Include="university\university\js\main.js" />
-    <Content Include="university\university\js\owl.carousel.min.js" />
-    <Content Include="university\university\js\popper.min.js" />
-    <Content Include="university\university\login.html" />
-    <Content Include="university\university\register.html" />
-    <Content Include="university\__MACOSX\university\._about.html" />
-    <Content Include="university\__MACOSX\university\._blog-single.html" />
-    <Content Include="university\__MACOSX\university\._blog.html" />
-    <Content Include="university\__MACOSX\university\._contact.html" />
-    <Content Include="university\__MACOSX\university\._course-single.html" />
-    <Content Include="university\__MACOSX\university\._courses.html" />
-    <Content Include="university\__MACOSX\university\._login.html" />
-    <Content Include="university\__MACOSX\university\._register.html" />
-    <Content Include="university\__MACOSX\university\css\._animate.css" />
-    <Content Include="university\__MACOSX\university\css\._owl.carousel.min.css" />
-    <Content Include="university\__MACOSX\university\fonts\flaticon\._backup.txt" />
-    <Content Include="university\__MACOSX\university\fonts\flaticon\font\._flaticon.css" />
-    <Content Include="university\__MACOSX\university\fonts\flaticon\font\._flaticon.html" />
-    <Content Include="university\__MACOSX\university\fonts\flaticon\font\._Flaticon.svg" />
-    <Content Include="university\__MACOSX\university\fonts\fontawesome\css\._font-awesome.min.css" />
-    <Content Include="university\__MACOSX\university\fonts\fontawesome\fonts\._fontawesome-webfont.svg" />
-    <Content Include="university\__MACOSX\university\fonts\ionicons\._cheatsheet.html" />
-    <Content Include="university\__MACOSX\university\fonts\ionicons\css\._ionicons.css" />
-    <Content Include="university\__MACOSX\university\fonts\ionicons\css\._ionicons.min.css" />
-    <Content Include="university\__MACOSX\university\fonts\ionicons\fonts\._ionicons.svg" />
-    <Content Include="university\__MACOSX\university\images\._big_image_1.jpg" />
-    <Content Include="university\__MACOSX\university\images\._big_image_2.jpg" />
-    <Content Include="university\__MACOSX\university\images\._img_1.jpg" />
-    <Content Include="university\__MACOSX\university\images\._img_2.jpg" />
-    <Content Include="university\__MACOSX\university\images\._img_2_b.jpg" />
-    <Content Include="university\__MACOSX\university\images\._img_3.jpg" />
-    <Content Include="university\__MACOSX\university\js\._bootstrap.min.js" />
-    <Content Include="university\__MACOSX\university\js\._jquery-3.2.1.min.js" />
-    <Content Include="university\__MACOSX\university\js\._jquery.waypoints.min.js" />
-    <Content Include="university\__MACOSX\university\js\._owl.carousel.min.js" />
-    <Content Include="university\__MACOSX\university\js\._popper.min.js" />
+    <Content Include="University\about.html" />
+    <Content Include="University\blog-single.html" />
+    <Content Include="University\blog.html" />
+    <Content Include="University\contact.html" />
+    <Content Include="University\course-single.html" />
+    <Content Include="University\courses.html" />
+    <Content Include="University\css\animate.css" />
+    <Content Include="University\css\bootstrap.css" />
+    <Content Include="University\css\magnific-popup.css" />
+    <Content Include="University\css\owl.carousel.min.css" />
+    <Content Include="University\css\style.css" />
+    <Content Include="University\fonts\flaticon\backup.txt" />
+    <Content Include="University\fonts\flaticon\font\flaticon.css" />
+    <Content Include="University\fonts\flaticon\font\flaticon.html" />
+    <Content Include="University\fonts\flaticon\font\Flaticon.svg" />
+    <Content Include="University\fonts\flaticon\font\_flaticon.css" />
+    <Content Include="University\fonts\fontawesome\css\font-awesome.min.css" />
+    <Content Include="University\fonts\fontawesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="University\fonts\ionicons\cheatsheet.html" />
+    <Content Include="University\fonts\ionicons\css\ionicons.css" />
+    <Content Include="University\fonts\ionicons\css\ionicons.min.css" />
+    <Content Include="University\fonts\ionicons\fonts\ionicons.svg" />
+    <Content Include="University\images\angularjs.jpg" />
+    <Content Include="University\images\big_image_1.jpg" />
+    <Content Include="University\images\big_image_2.jpg" />
+    <Content Include="University\images\big_image_3.jpg" />
+    <Content Include="University\images\img_1.jpg" />
+    <Content Include="University\images\img_2.jpg" />
+    <Content Include="University\images\img_2_b.jpg" />
+    <Content Include="University\images\img_3.jpg" />
+    <Content Include="University\images\javascript.jpg" />
+    <Content Include="University\images\loc.png" />
+    <Content Include="University\images\person_1.jpg" />
+    <Content Include="University\images\person_2.jpg" />
+    <Content Include="University\images\person_3.jpg" />
+    <Content Include="University\images\person_4.jpg" />
+    <Content Include="University\images\person_5.jpg" />
+    <Content Include="University\images\person_6.jpg" />
+    <Content Include="University\images\person_testimonial_1.jpg" />
+    <Content Include="University\images\photoshop.jpg" />
+    <Content Include="University\images\reactjs.jpg" />
+    <Content Include="University\images\webdesign.jpg" />
+    <Content Include="University\images\wordpress.jpg" />
+    <Content Include="University\index.html" />
+    <Content Include="University\js\bootstrap.min.js" />
+    <Content Include="University\js\google-map.js" />
+    <Content Include="University\js\jquery-3.2.1.min.js" />
+    <Content Include="University\js\jquery-migrate-3.0.0.js" />
+    <Content Include="University\js\jquery.animateNumber.min.js" />
+    <Content Include="University\js\jquery.magnific-popup.min.js" />
+    <Content Include="University\js\jquery.stellar.min.js" />
+    <Content Include="University\js\jquery.waypoints.min.js" />
+    <Content Include="University\js\main.js" />
+    <Content Include="University\js\owl.carousel.min.js" />
+    <Content Include="University\js\popper.min.js" />
+    <Content Include="University\login.html" />
+    <Content Include="University\register.html" />
     <Content Include="web\css1\bootstrap1.css" />
     <Content Include="web\css1\font-awesome1.css" />
     <Content Include="web\css1\style1.css" />
@@ -685,6 +678,17 @@
     <Content Include="DB55.edmx.diagram">
       <DependentUpon>DB55.edmx</DependentUpon>
     </Content>
+    <Content Include="Reports\DataSetPerson.xsc">
+      <DependentUpon>DataSetPerson.xsd</DependentUpon>
+    </Content>
+    <None Include="Reports\DataSetPerson.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetPerson.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reports\DataSetPerson.xss">
+      <DependentUpon>DataSetPerson.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -765,179 +769,112 @@
     <Content Include="Views\Category\Edit.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Category\SelectSymptoms.cshtml" />
-    <Content Include="university\university\.DS_Store" />
-    <Content Include="university\university\css\bootstrap.css.map" />
-    <Content Include="university\university\fonts\.DS_Store" />
-    <Content Include="university\university\fonts\flaticon\.DS_Store" />
-    <Content Include="university\university\fonts\flaticon\font\Flaticon.eot" />
-    <Content Include="university\university\fonts\flaticon\font\Flaticon.ttf" />
-    <Content Include="university\university\fonts\flaticon\font\Flaticon.woff" />
-    <Content Include="university\university\fonts\flaticon\font\_flaticon.scss" />
-    <Content Include="university\university\fonts\flaticon\license\license.pdf" />
-    <Content Include="university\university\fonts\fontawesome\fonts\fontawesome-webfont.eot" />
-    <Content Include="university\university\fonts\fontawesome\fonts\fontawesome-webfont.ttf" />
-    <Content Include="university\university\fonts\fontawesome\fonts\fontawesome-webfont.woff" />
-    <Content Include="university\university\fonts\fontawesome\fonts\fontawesome-webfont.woff2" />
-    <Content Include="university\university\fonts\ionicons\.DS_Store" />
-    <Content Include="university\university\fonts\ionicons\fonts\ionicons.eot" />
-    <Content Include="university\university\fonts\ionicons\fonts\ionicons.ttf" />
-    <Content Include="university\university\fonts\ionicons\fonts\ionicons.woff" />
-    <Content Include="university\university\images\.DS_Store" />
-    <Content Include="university\university\scss\.DS_Store" />
-    <Content Include="university\university\scss\bootstrap-grid.scss" />
-    <Content Include="university\university\scss\bootstrap-reboot.scss" />
-    <Content Include="university\university\scss\bootstrap.scss" />
-    <Content Include="university\university\scss\mixins\_alert.scss" />
-    <Content Include="university\university\scss\mixins\_background-variant.scss" />
-    <Content Include="university\university\scss\mixins\_badge.scss" />
-    <Content Include="university\university\scss\mixins\_border-radius.scss" />
-    <Content Include="university\university\scss\mixins\_box-shadow.scss" />
-    <Content Include="university\university\scss\mixins\_breakpoints.scss" />
-    <Content Include="university\university\scss\mixins\_buttons.scss" />
-    <Content Include="university\university\scss\mixins\_caret.scss" />
-    <Content Include="university\university\scss\mixins\_clearfix.scss" />
-    <Content Include="university\university\scss\mixins\_float.scss" />
-    <Content Include="university\university\scss\mixins\_forms.scss" />
-    <Content Include="university\university\scss\mixins\_gradients.scss" />
-    <Content Include="university\university\scss\mixins\_grid-framework.scss" />
-    <Content Include="university\university\scss\mixins\_grid.scss" />
-    <Content Include="university\university\scss\mixins\_hover.scss" />
-    <Content Include="university\university\scss\mixins\_image.scss" />
-    <Content Include="university\university\scss\mixins\_list-group.scss" />
-    <Content Include="university\university\scss\mixins\_lists.scss" />
-    <Content Include="university\university\scss\mixins\_nav-divider.scss" />
-    <Content Include="university\university\scss\mixins\_navbar-align.scss" />
-    <Content Include="university\university\scss\mixins\_pagination.scss" />
-    <Content Include="university\university\scss\mixins\_reset-text.scss" />
-    <Content Include="university\university\scss\mixins\_resize.scss" />
-    <Content Include="university\university\scss\mixins\_screen-reader.scss" />
-    <Content Include="university\university\scss\mixins\_size.scss" />
-    <Content Include="university\university\scss\mixins\_table-row.scss" />
-    <Content Include="university\university\scss\mixins\_text-emphasis.scss" />
-    <Content Include="university\university\scss\mixins\_text-hide.scss" />
-    <Content Include="university\university\scss\mixins\_text-truncate.scss" />
-    <Content Include="university\university\scss\mixins\_transition.scss" />
-    <Content Include="university\university\scss\mixins\_visibility.scss" />
-    <Content Include="university\university\scss\style.scss" />
-    <Content Include="university\university\scss\utilities\_align.scss" />
-    <Content Include="university\university\scss\utilities\_background.scss" />
-    <Content Include="university\university\scss\utilities\_borders.scss" />
-    <Content Include="university\university\scss\utilities\_clearfix.scss" />
-    <Content Include="university\university\scss\utilities\_display.scss" />
-    <Content Include="university\university\scss\utilities\_embed.scss" />
-    <Content Include="university\university\scss\utilities\_flex.scss" />
-    <Content Include="university\university\scss\utilities\_float.scss" />
-    <Content Include="university\university\scss\utilities\_position.scss" />
-    <Content Include="university\university\scss\utilities\_screenreaders.scss" />
-    <Content Include="university\university\scss\utilities\_sizing.scss" />
-    <Content Include="university\university\scss\utilities\_spacing.scss" />
-    <Content Include="university\university\scss\utilities\_text.scss" />
-    <Content Include="university\university\scss\utilities\_visibility.scss" />
-    <Content Include="university\university\scss\_alert.scss" />
-    <Content Include="university\university\scss\_badge.scss" />
-    <Content Include="university\university\scss\_breadcrumb.scss" />
-    <Content Include="university\university\scss\_button-group.scss" />
-    <Content Include="university\university\scss\_buttons.scss" />
-    <Content Include="university\university\scss\_card.scss" />
-    <Content Include="university\university\scss\_carousel.scss" />
-    <Content Include="university\university\scss\_close.scss" />
-    <Content Include="university\university\scss\_code.scss" />
-    <Content Include="university\university\scss\_custom-forms.scss" />
-    <Content Include="university\university\scss\_custom.scss" />
-    <Content Include="university\university\scss\_dropdown.scss" />
-    <Content Include="university\university\scss\_forms.scss" />
-    <Content Include="university\university\scss\_functions.scss" />
-    <Content Include="university\university\scss\_grid.scss" />
-    <Content Include="university\university\scss\_images.scss" />
-    <Content Include="university\university\scss\_input-group.scss" />
-    <Content Include="university\university\scss\_jumbotron.scss" />
-    <Content Include="university\university\scss\_list-group.scss" />
-    <Content Include="university\university\scss\_media.scss" />
-    <Content Include="university\university\scss\_mixins.scss" />
-    <Content Include="university\university\scss\_modal.scss" />
-    <Content Include="university\university\scss\_nav.scss" />
-    <Content Include="university\university\scss\_navbar.scss" />
-    <Content Include="university\university\scss\_pagination.scss" />
-    <Content Include="university\university\scss\_popover.scss" />
-    <Content Include="university\university\scss\_print.scss" />
-    <Content Include="university\university\scss\_progress.scss" />
-    <Content Include="university\university\scss\_reboot.scss" />
-    <Content Include="university\university\scss\_root.scss" />
-    <Content Include="university\university\scss\_tables.scss" />
-    <Content Include="university\university\scss\_tooltip.scss" />
-    <Content Include="university\university\scss\_transitions.scss" />
-    <Content Include="university\university\scss\_type.scss" />
-    <Content Include="university\university\scss\_utilities.scss" />
-    <Content Include="university\university\scss\_variables.scss" />
-    <Content Include="university\__MACOSX\university\._.DS_Store" />
-    <Content Include="university\__MACOSX\university\._css" />
-    <Content Include="university\__MACOSX\university\._fonts" />
-    <Content Include="university\__MACOSX\university\._js" />
-    <Content Include="university\__MACOSX\university\._scss" />
-    <Content Include="university\__MACOSX\university\fonts\._fontawesome" />
-    <Content Include="university\__MACOSX\university\fonts\._ionicons" />
-    <Content Include="university\__MACOSX\university\fonts\flaticon\._font" />
-    <Content Include="university\__MACOSX\university\fonts\flaticon\._license" />
-    <Content Include="university\__MACOSX\university\fonts\flaticon\font\._Flaticon.eot" />
-    <Content Include="university\__MACOSX\university\fonts\flaticon\font\._Flaticon.ttf" />
-    <Content Include="university\__MACOSX\university\fonts\flaticon\font\._Flaticon.woff" />
-    <Content Include="university\__MACOSX\university\fonts\flaticon\font\.__flaticon.scss" />
-    <Content Include="university\__MACOSX\university\fonts\flaticon\license\._license.pdf" />
-    <Content Include="university\__MACOSX\university\fonts\fontawesome\._css" />
-    <Content Include="university\__MACOSX\university\fonts\fontawesome\._fonts" />
-    <Content Include="university\__MACOSX\university\fonts\fontawesome\fonts\._fontawesome-webfont.eot" />
-    <Content Include="university\__MACOSX\university\fonts\fontawesome\fonts\._fontawesome-webfont.ttf" />
-    <Content Include="university\__MACOSX\university\fonts\fontawesome\fonts\._fontawesome-webfont.woff" />
-    <Content Include="university\__MACOSX\university\fonts\fontawesome\fonts\._fontawesome-webfont.woff2" />
-    <Content Include="university\__MACOSX\university\fonts\ionicons\._css" />
-    <Content Include="university\__MACOSX\university\fonts\ionicons\._fonts" />
-    <Content Include="university\__MACOSX\university\fonts\ionicons\fonts\._ionicons.eot" />
-    <Content Include="university\__MACOSX\university\fonts\ionicons\fonts\._ionicons.ttf" />
-    <Content Include="university\__MACOSX\university\fonts\ionicons\fonts\._ionicons.woff" />
-    <Content Include="university\__MACOSX\university\scss\._mixins" />
-    <Content Include="university\__MACOSX\university\scss\._utilities" />
-    <Content Include="university\__MACOSX\university\scss\.__badge.scss" />
-    <Content Include="university\__MACOSX\university\scss\.__breadcrumb.scss" />
-    <Content Include="university\__MACOSX\university\scss\.__grid.scss" />
-    <Content Include="university\__MACOSX\university\scss\.__jumbotron.scss" />
-    <Content Include="university\__MACOSX\university\scss\.__media.scss" />
-    <Content Include="university\__MACOSX\university\scss\.__mixins.scss" />
-    <Content Include="university\__MACOSX\university\scss\.__root.scss" />
-    <Content Include="university\__MACOSX\university\scss\.__transitions.scss" />
-    <Content Include="university\__MACOSX\university\scss\.__utilities.scss" />
-    <Content Include="university\__MACOSX\university\scss\mixins\.__alert.scss" />
-    <Content Include="university\__MACOSX\university\scss\mixins\.__badge.scss" />
-    <Content Include="university\__MACOSX\university\scss\mixins\.__border-radius.scss" />
-    <Content Include="university\__MACOSX\university\scss\mixins\.__box-shadow.scss" />
-    <Content Include="university\__MACOSX\university\scss\mixins\.__clearfix.scss" />
-    <Content Include="university\__MACOSX\university\scss\mixins\.__float.scss" />
-    <Content Include="university\__MACOSX\university\scss\mixins\.__gradients.scss" />
-    <Content Include="university\__MACOSX\university\scss\mixins\.__grid.scss" />
-    <Content Include="university\__MACOSX\university\scss\mixins\.__image.scss" />
-    <Content Include="university\__MACOSX\university\scss\mixins\.__lists.scss" />
-    <Content Include="university\__MACOSX\university\scss\mixins\.__nav-divider.scss" />
-    <Content Include="university\__MACOSX\university\scss\mixins\.__navbar-align.scss" />
-    <Content Include="university\__MACOSX\university\scss\mixins\.__pagination.scss" />
-    <Content Include="university\__MACOSX\university\scss\mixins\.__reset-text.scss" />
-    <Content Include="university\__MACOSX\university\scss\mixins\.__resize.scss" />
-    <Content Include="university\__MACOSX\university\scss\mixins\.__size.scss" />
-    <Content Include="university\__MACOSX\university\scss\mixins\.__table-row.scss" />
-    <Content Include="university\__MACOSX\university\scss\mixins\.__text-emphasis.scss" />
-    <Content Include="university\__MACOSX\university\scss\mixins\.__text-truncate.scss" />
-    <Content Include="university\__MACOSX\university\scss\mixins\.__transition.scss" />
-    <Content Include="university\__MACOSX\university\scss\mixins\.__visibility.scss" />
-    <Content Include="university\__MACOSX\university\scss\utilities\.__align.scss" />
-    <Content Include="university\__MACOSX\university\scss\utilities\.__background.scss" />
-    <Content Include="university\__MACOSX\university\scss\utilities\.__clearfix.scss" />
-    <Content Include="university\__MACOSX\university\scss\utilities\.__embed.scss" />
-    <Content Include="university\__MACOSX\university\scss\utilities\.__flex.scss" />
-    <Content Include="university\__MACOSX\university\scss\utilities\.__float.scss" />
-    <Content Include="university\__MACOSX\university\scss\utilities\.__position.scss" />
-    <Content Include="university\__MACOSX\university\scss\utilities\.__screenreaders.scss" />
-    <Content Include="university\__MACOSX\university\scss\utilities\.__sizing.scss" />
-    <Content Include="university\__MACOSX\university\scss\utilities\.__spacing.scss" />
-    <Content Include="university\__MACOSX\university\scss\utilities\.__text.scss" />
-    <Content Include="university\__MACOSX\university\scss\utilities\.__visibility.scss" />
+    <Content Include="Views\PersonReport\Index.cshtml" />
+    <Content Include="Views\DoctorDiseaseReport\Index.cshtml" />
+    <Content Include="University\.DS_Store" />
+    <Content Include="University\css\bootstrap.css.map" />
+    <Content Include="University\fonts\.DS_Store" />
+    <Content Include="University\fonts\flaticon\.DS_Store" />
+    <Content Include="University\fonts\flaticon\font\Flaticon.eot" />
+    <Content Include="University\fonts\flaticon\font\Flaticon.ttf" />
+    <Content Include="University\fonts\flaticon\font\Flaticon.woff" />
+    <Content Include="University\fonts\flaticon\font\_flaticon.scss" />
+    <Content Include="University\fonts\flaticon\license\license.pdf" />
+    <Content Include="University\fonts\fontawesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="University\fonts\fontawesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="University\fonts\fontawesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="University\fonts\fontawesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="University\fonts\ionicons\.DS_Store" />
+    <Content Include="University\fonts\ionicons\fonts\ionicons.eot" />
+    <Content Include="University\fonts\ionicons\fonts\ionicons.ttf" />
+    <Content Include="University\fonts\ionicons\fonts\ionicons.woff" />
+    <Content Include="University\images\.DS_Store" />
+    <Content Include="University\scss\.DS_Store" />
+    <Content Include="University\scss\bootstrap-grid.scss" />
+    <Content Include="University\scss\bootstrap-reboot.scss" />
+    <Content Include="University\scss\bootstrap.scss" />
+    <Content Include="University\scss\mixins\_alert.scss" />
+    <Content Include="University\scss\mixins\_background-variant.scss" />
+    <Content Include="University\scss\mixins\_badge.scss" />
+    <Content Include="University\scss\mixins\_border-radius.scss" />
+    <Content Include="University\scss\mixins\_box-shadow.scss" />
+    <Content Include="University\scss\mixins\_breakpoints.scss" />
+    <Content Include="University\scss\mixins\_buttons.scss" />
+    <Content Include="University\scss\mixins\_caret.scss" />
+    <Content Include="University\scss\mixins\_clearfix.scss" />
+    <Content Include="University\scss\mixins\_float.scss" />
+    <Content Include="University\scss\mixins\_forms.scss" />
+    <Content Include="University\scss\mixins\_gradients.scss" />
+    <Content Include="University\scss\mixins\_grid-framework.scss" />
+    <Content Include="University\scss\mixins\_grid.scss" />
+    <Content Include="University\scss\mixins\_hover.scss" />
+    <Content Include="University\scss\mixins\_image.scss" />
+    <Content Include="University\scss\mixins\_list-group.scss" />
+    <Content Include="University\scss\mixins\_lists.scss" />
+    <Content Include="University\scss\mixins\_nav-divider.scss" />
+    <Content Include="University\scss\mixins\_navbar-align.scss" />
+    <Content Include="University\scss\mixins\_pagination.scss" />
+    <Content Include="University\scss\mixins\_reset-text.scss" />
+    <Content Include="University\scss\mixins\_resize.scss" />
+    <Content Include="University\scss\mixins\_screen-reader.scss" />
+    <Content Include="University\scss\mixins\_size.scss" />
+    <Content Include="University\scss\mixins\_table-row.scss" />
+    <Content Include="University\scss\mixins\_text-emphasis.scss" />
+    <Content Include="University\scss\mixins\_text-hide.scss" />
+    <Content Include="University\scss\mixins\_text-truncate.scss" />
+    <Content Include="University\scss\mixins\_transition.scss" />
+    <Content Include="University\scss\mixins\_visibility.scss" />
+    <Content Include="University\scss\style.scss" />
+    <Content Include="University\scss\utilities\_align.scss" />
+    <Content Include="University\scss\utilities\_background.scss" />
+    <Content Include="University\scss\utilities\_borders.scss" />
+    <Content Include="University\scss\utilities\_clearfix.scss" />
+    <Content Include="University\scss\utilities\_display.scss" />
+    <Content Include="University\scss\utilities\_embed.scss" />
+    <Content Include="University\scss\utilities\_flex.scss" />
+    <Content Include="University\scss\utilities\_float.scss" />
+    <Content Include="University\scss\utilities\_position.scss" />
+    <Content Include="University\scss\utilities\_screenreaders.scss" />
+    <Content Include="University\scss\utilities\_sizing.scss" />
+    <Content Include="University\scss\utilities\_spacing.scss" />
+    <Content Include="University\scss\utilities\_text.scss" />
+    <Content Include="University\scss\utilities\_visibility.scss" />
+    <Content Include="University\scss\_alert.scss" />
+    <Content Include="University\scss\_badge.scss" />
+    <Content Include="University\scss\_breadcrumb.scss" />
+    <Content Include="University\scss\_button-group.scss" />
+    <Content Include="University\scss\_buttons.scss" />
+    <Content Include="University\scss\_card.scss" />
+    <Content Include="University\scss\_carousel.scss" />
+    <Content Include="University\scss\_close.scss" />
+    <Content Include="University\scss\_code.scss" />
+    <Content Include="University\scss\_custom-forms.scss" />
+    <Content Include="University\scss\_custom.scss" />
+    <Content Include="University\scss\_dropdown.scss" />
+    <Content Include="University\scss\_forms.scss" />
+    <Content Include="University\scss\_functions.scss" />
+    <Content Include="University\scss\_grid.scss" />
+    <Content Include="University\scss\_images.scss" />
+    <Content Include="University\scss\_input-group.scss" />
+    <Content Include="University\scss\_jumbotron.scss" />
+    <Content Include="University\scss\_list-group.scss" />
+    <Content Include="University\scss\_media.scss" />
+    <Content Include="University\scss\_mixins.scss" />
+    <Content Include="University\scss\_modal.scss" />
+    <Content Include="University\scss\_nav.scss" />
+    <Content Include="University\scss\_navbar.scss" />
+    <Content Include="University\scss\_pagination.scss" />
+    <Content Include="University\scss\_popover.scss" />
+    <Content Include="University\scss\_print.scss" />
+    <Content Include="University\scss\_progress.scss" />
+    <Content Include="University\scss\_reboot.scss" />
+    <Content Include="University\scss\_root.scss" />
+    <Content Include="University\scss\_tables.scss" />
+    <Content Include="University\scss\_tooltip.scss" />
+    <Content Include="University\scss\_transitions.scss" />
+    <Content Include="University\scss\_type.scss" />
+    <Content Include="University\scss\_utilities.scss" />
+    <Content Include="University\scss\_variables.scss" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -953,6 +890,17 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reports\CrystalReportPerson.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportPerson.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\DoctorDisease.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DoctorDisease.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
