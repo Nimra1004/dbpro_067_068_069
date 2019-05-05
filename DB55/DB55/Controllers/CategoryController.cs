@@ -16,7 +16,7 @@ namespace DB55.Controllers
         // GET: Category
         public ActionResult Index()
         {
-            
+
             List<Category> list1 = db.Categories.ToList();
             List<CategoryViewModel> viewList = new List<CategoryViewModel>();
             foreach (Category s in list1)
@@ -29,7 +29,25 @@ namespace DB55.Controllers
             }
             return View(viewList);
 
-           
+
+        }
+
+        public ActionResult AdminIndex()
+        {
+
+            List<Category> list1 = db.Categories.ToList();
+            List<CategoryViewModel> viewList = new List<CategoryViewModel>();
+            foreach (Category s in list1)
+            {
+                CategoryViewModel obj = new CategoryViewModel();
+                obj.Id = s.Id;
+                obj.Name = s.Name;
+                viewList.Add(obj);
+
+            }
+            return View(viewList);
+
+
         }
 
         // GET: Category/Details/5
@@ -42,7 +60,7 @@ namespace DB55.Controllers
             List<SymptomsModel> viewList = new List<SymptomsModel>();
             foreach (Symptom s in list1)
             {
-                foreach(Disease d in list2)
+                foreach (Disease d in list2)
                 {
 
                     if (s.DiseaseId == d.Id && d.CategoryId == id)
@@ -55,7 +73,7 @@ namespace DB55.Controllers
                         obj.ckecked = false;
                         viewList.Add(obj);
                     }
-                }       
+                }
             }
             return View(viewList);
             //return View("SelectSymptoms");
@@ -90,7 +108,7 @@ namespace DB55.Controllers
                     {
                         if (s.ckecked == true && s.DiseaseId == d.Id)
                         {
-                            
+
                             obj.Id = d.Id;
                             obj.DiseaseName = d.Name;
 
@@ -169,7 +187,7 @@ namespace DB55.Controllers
                     }
                 }
 
-                
+
             }
             return View("Select", list2);
         }
@@ -209,9 +227,9 @@ namespace DB55.Controllers
                 return View();
             }
         }
-        
 
-       
+
+
 
         // GET: Category/Edit/5
         public ActionResult Edit(int id)
@@ -272,7 +290,7 @@ namespace DB55.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return View();
             }

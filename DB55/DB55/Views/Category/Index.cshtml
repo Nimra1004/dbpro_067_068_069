@@ -5,6 +5,7 @@
 }
 
 
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -25,6 +26,31 @@
 
     <!-- Theme Style -->
     <link rel="stylesheet" href="/University/css/style.css">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Webhosting Pricing Tables Widget a Flat Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+    <!-- Default-JavaScript-File -->
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script src="~/css2/js/jquery-2.1.4.min.js"></script>
+    <!-- //Default-JavaScript-File -->
+    <!-- default-css-files -->
+    <link href="css/fontawesome-all.min.css" rel="stylesheet" type="text/css" media="all">
+    <link href="~/css2/css/fontawesome-all.min.css" rel="stylesheet" />
+    <!-- default-css-files -->
+
+    <link href="css/popup-box.css" rel="stylesheet" type="text/css" media="all" /><!-- popup css -->
+    <link href="~/css2/css/popup-box.css" rel="stylesheet" />
+    <!-- style.css-file -->
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <link href="~/css2/css/style.css" rel="stylesheet" />
+    <!-- //style.css-file -->
+    <link href="//fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
+
+
 </head>
 <body>
 
@@ -43,7 +69,7 @@
             <div class="col-md-6 col-lg-4">
                 <div class="block-2">
                     <div class="flipper">
-                        <div class="front" style="background-image: url(../../images/heart.jpg);">
+                        <div class="front" style="background-image: url(../../University/images/heart.jpg);">
                             <div class="box">
                                 <h2>اھم اعضاء</h2>
                                 <p>انسانی دل</p>
@@ -56,18 +82,18 @@
                             </blockquote>
                             <div class="author d-flex">
                                 <div class="image mr-3 align-self-center">
-                                    <img src="~/images/heart.jpg" alt="">
+                                    <img src="~/University/images/heart.jpg" alt="">
                                 </div>
                                 <div class="name align-self-center">Job Smith <span class="position">Laravel Expert</span></div>
                             </div>
                         </div>
                     </div>
-                </div> <!-- .flip-container --> 
+                </div> <!-- .flip-container -->
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="block-2 ">
                     <div class="flipper">
-                        <div class="front" style="background-image: url(../../images/brain-hd.jpg);">
+                        <div class="front" style="background-image: url(../../University//images/brain-hd.jpg);">
                             <div class="box">
                                 <h2>اھم اعضاء</h2>
                                 <p>دماغ</p>
@@ -80,7 +106,8 @@
                             </blockquote>
                             <div class="author d-flex">
                                 <div class="image mr-3 align-self-center">
-                                    <img src="~/images/brain-hd.jpg" alt="">
+
+                                    <img src="~/University/images/brain-hd.jpg" />
                                 </div>
                                 <div class="name align-self-center"> <span class="position">دماغ</span></div>
                             </div>
@@ -91,7 +118,7 @@
             <div class="col-md-6 col-lg-4">
                 <div class="block-2">
                     <div class="flipper">
-                        <div class="front" style="background-image: url(../../images/Rbc.jpg);">
+                        <div class="front" style="background-image: url(../../University/images/Rbc.jpg);">
                             <div class="box">
                                 <h2>اھم اعضاء</h2>
                                 <p>ریڈ بلڈ سیلذ</p>
@@ -104,7 +131,7 @@
                             </blockquote>
                             <div class="author d-flex">
                                 <div class="image mr-3 align-self-center">
-                                    <img src="~/images/Rbc.jpg" alt="">
+                                    <img src="~/University/images/Rbc.jpg" alt="">
                                 </div>
                                 <div class="name align-self-center"> <span class="position">ریڈ بلڈ سیلذ</span></div>
                             </div>
@@ -114,36 +141,79 @@
             </div>
         </div>
     </div>
-    <!-- END .block-2 -->
-    <!-- loader -->
-    <div>
-        <p>
-            @Html.ActionLink("Create New", "Create")
-        </p>
+
+    <div class="plans-section" style="align-content:center">
+        <div class="plans-main">
+            <h1 class="w3l-inner-h-title">علاج کے لئے اعضاء کا انتخاب کریں </h1>
+
+            <div class="price-grid1 lost">
+                <div class="price-block price-block2 agile">
+                    <div class="price-gd-top pric-clr3">
+                        <i class="fab fa-accusoft"></i>
+                        <br />
+                        <br />
+                        @*<div>
+                                @Html.DisplayNameFor(model => model.Name)
+                            </div>*@
+                        <div>
+
+
+                            @foreach (var item in Model)
+                            {
+                                @*@Html.ActionLink("تبدیل کریں ", "Edit", new { id = item.Id })
+                                    @Html.ActionLink("ختم کریں", "Delete", new { id = item.Id })*@
+                                @Html.ActionLink("منتخب کریں", "SelectSymptoms", new { id = item.Id })
+                                <div>
+
+                                </div>
+                                @*@Html.DisplayFor(modelItem => item.Name)*@
+                                <br />
+                            }
+                        </div>
+
+                    </div>
+                    <div class="price-gd-bottom">
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="price-grid1 lost">
+                <div class="price-block price-block2 agile">
+                    <div class="price-gd-top pric-clr3">
+                        <i class="fab fa-accusoft"></i>
+                        <div style="color:white; font-style:inherit">
+                            @Html.DisplayNameFor(model => model.Name)
+                            <br />
+                        </div>
+                        <div style="color:white">
+
+
+                            @foreach (var item in Model)
+                            {
+
+                                <div>
+
+                                </div>
+                                @Html.DisplayFor(modelItem => item.Name)
+                                <br />
+                                <br />
+
+                            }
+                        </div>
+
+                    </div>
+                    <div class="price-gd-bottom">
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
     </div>
-    <table class="table" style="border:groove"; width="500">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-        </tr>
+    <!-- loader -->
 
-        @foreach (var item in Model)
-        {
-        <tr>
-            <td>
-                @Html.ActionLink("تبدیل کریں ", "Edit", new { id = item.Id })|
-                @Html.ActionLink("ختم کریں", "Delete", new { id = item.Id })|
-                @Html.ActionLink("منتخب کریں", "SelectSymptoms", new { id = item.Id })
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-        </tr>
-        }
-
-
-    </table>
     <script src="/University/js/jquery-3.2.1.min.js"></script>
     <script src="/University/js/jquery-migrate-3.0.0.js"></script>
     <script src="/University/js/popper.min.js"></script>

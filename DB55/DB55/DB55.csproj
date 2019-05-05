@@ -294,6 +294,12 @@
       <DependentUpon>DoctorDisease.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reports\ListOfMedicine.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListOfMedicine.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\ReportsOfDiseases.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -456,6 +462,15 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="css2\css\fontawesome-all.min.css" />
+    <Content Include="css2\css\popup-box.css" />
+    <Content Include="css2\css\style.css" />
+    <Content Include="css2\images\bg.jpeg" />
+    <Content Include="css2\js\jquery-2.1.4.min.js" />
+    <Content Include="css2\js\jquery.magnific-popup.js" />
+    <Content Include="css2\webfonts\fa-brands-400.svg" />
+    <Content Include="css2\webfonts\fa-regular-400.svg" />
+    <Content Include="css2\webfonts\fa-solid-900.svg" />
     <Content Include="DB55.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DB55.edmx</DependentUpon>
@@ -522,6 +537,10 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Selectsymptomsweb\css\font-awesome.css" />
+    <Content Include="Selectsymptomsweb\css\style.css" />
+    <Content Include="Selectsymptomsweb\fonts\fontawesome-webfont.svg" />
+    <Content Include="Selectsymptomsweb\images\tick.png" />
     <Content Include="SmartLogin\css\style.css" />
     <Content Include="SmartLogin\images\arrow.png" />
     <Content Include="SmartLogin\images\bg1.jpg" />
@@ -572,10 +591,13 @@
     <Content Include="University\images\big_image_1.jpg" />
     <Content Include="University\images\big_image_2.jpg" />
     <Content Include="University\images\big_image_3.jpg" />
+    <Content Include="University\images\brain-hd.jpg" />
+    <Content Include="University\images\heart.jpg" />
     <Content Include="University\images\img_1.jpg" />
     <Content Include="University\images\img_2.jpg" />
     <Content Include="University\images\img_2_b.jpg" />
     <Content Include="University\images\img_3.jpg" />
+    <Content Include="University\images\inject.jpg" />
     <Content Include="University\images\javascript.jpg" />
     <Content Include="University\images\loc.png" />
     <Content Include="University\images\person_1.jpg" />
@@ -586,7 +608,9 @@
     <Content Include="University\images\person_6.jpg" />
     <Content Include="University\images\person_testimonial_1.jpg" />
     <Content Include="University\images\photoshop.jpg" />
+    <Content Include="University\images\Rbc.jpg" />
     <Content Include="University\images\reactjs.jpg" />
+    <Content Include="University\images\Skull.jpg" />
     <Content Include="University\images\webdesign.jpg" />
     <Content Include="University\images\wordpress.jpg" />
     <Content Include="University\index.html" />
@@ -683,6 +707,9 @@
     <Content Include="frontPage\webfonts\fa-solid-900.ttf" />
     <Content Include="frontPage\webfonts\fa-solid-900.woff" />
     <Content Include="frontPage\webfonts\fa-solid-900.woff2" />
+    <Content Include="Reports\DataSetPerson.xsc">
+      <DependentUpon>DataSetPerson.xsd</DependentUpon>
+    </Content>
     <EntityDeploy Include="DB55.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DB55.Designer.cs</LastGenOutput>
@@ -690,9 +717,18 @@
     <Content Include="DB55.edmx.diagram">
       <DependentUpon>DB55.edmx</DependentUpon>
     </Content>
-    <Content Include="Reports\DataSetPerson.xsc">
-      <DependentUpon>DataSetPerson.xsd</DependentUpon>
-    </Content>
+    <Content Include="css2\webfonts\fa-brands-400.eot" />
+    <Content Include="css2\webfonts\fa-brands-400.ttf" />
+    <Content Include="css2\webfonts\fa-brands-400.woff" />
+    <Content Include="css2\webfonts\fa-brands-400.woff2" />
+    <Content Include="css2\webfonts\fa-regular-400.eot" />
+    <Content Include="css2\webfonts\fa-regular-400.ttf" />
+    <Content Include="css2\webfonts\fa-regular-400.woff" />
+    <Content Include="css2\webfonts\fa-regular-400.woff2" />
+    <Content Include="css2\webfonts\fa-solid-900.eot" />
+    <Content Include="css2\webfonts\fa-solid-900.ttf" />
+    <Content Include="css2\webfonts\fa-solid-900.woff" />
+    <Content Include="css2\webfonts\fa-solid-900.woff2" />
     <None Include="Reports\DataSetPerson.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -783,6 +819,11 @@
     <Content Include="Views\Category\SelectSymptoms.cshtml" />
     <Content Include="Views\PersonReport\Index.cshtml" />
     <Content Include="Views\DoctorDiseaseReport\Index.cshtml" />
+    <Content Include="Selectsymptomsweb\fonts\fontawesome-webfont.eot" />
+    <Content Include="Selectsymptomsweb\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Selectsymptomsweb\fonts\fontawesome-webfont.woff" />
+    <Content Include="Selectsymptomsweb\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Selectsymptomsweb\fonts\FontAwesome.otf" />
     <Content Include="University\.DS_Store" />
     <Content Include="University\css\bootstrap.css.map" />
     <Content Include="University\fonts\.DS_Store" />
@@ -887,6 +928,7 @@
     <Content Include="University\scss\_type.scss" />
     <Content Include="University\scss\_utilities.scss" />
     <Content Include="University\scss\_variables.scss" />
+    <Content Include="Views\Category\AdminIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -916,6 +958,10 @@
     <EmbeddedResource Include="Reports\DoctorDisease.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>DoctorDisease.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ListOfMedicine.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ListOfMedicine.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ReportsOfDiseases.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
