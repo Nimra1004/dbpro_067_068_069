@@ -5,6 +5,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DB55.ViewModel;
+using System.ComponentModel.DataAnnotations;
+using System.Data;
+using System.Data.Entity;
+using System.Net;
+using Microsoft.AspNet.Identity;
 
 namespace DB55.Controllers
 {
@@ -14,20 +19,56 @@ namespace DB55.Controllers
         List<int> SelectedIds = new List<int>();
 
         // GET: Category
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString)
         {
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
 
-            List<Category> list1 = db.Categories.ToList();
-            List<CategoryViewModel> viewList = new List<CategoryViewModel>();
-            foreach (Category s in list1)
+            if (searchString != null)
             {
-                CategoryViewModel obj = new CategoryViewModel();
-                obj.Id = s.Id;
-                obj.Name = s.Name;
-                viewList.Add(obj);
-
+                
             }
-            return View(viewList);
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+
+            var donors = from s in db.Categories
+                         select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                donors = donors.Where(s => s.Name.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    donors = donors.OrderByDescending(s => s.Name);
+                    break;
+                
+            }
+            //int pageSize = 10;
+            
+            return View(donors);
+
+
+
+            //List<Category> list1 = db.Categories.ToList();
+            //List<CategoryViewModel> viewList = new List<CategoryViewModel>();
+            //foreach (Category s in list1)
+            //{
+            //    CategoryViewModel obj = new CategoryViewModel();
+            //    obj.Id = s.Id;
+            //    obj.Name = s.Name;
+            //    viewList.Add(obj);
+
+            //}
+            //return View(viewList);
 
 
         }

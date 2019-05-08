@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DB55.Models.CategoryViewModel>
+﻿@model IEnumerable<DB55.Category>
 
 @{
     ViewBag.Title = "Index";
@@ -142,6 +142,7 @@
         </div>
     </div>
 
+   
     <div class="plans-section" style="align-content:center">
         <div class="plans-main">
             <h1 class="w3l-inner-h-title">علاج کے لئے اعضاء کا انتخاب کریں </h1>
@@ -153,15 +154,15 @@
                         <br />
                         <br />
                         @*<div>
-                                @Html.DisplayNameFor(model => model.Name)
-                            </div>*@
+                        @Html.DisplayNameFor(model => model.Name)
+                    </div>*@
                         <div>
 
 
                             @foreach (var item in Model)
                             {
                                 @*@Html.ActionLink("تبدیل کریں ", "Edit", new { id = item.Id })
-                                    @Html.ActionLink("ختم کریں", "Delete", new { id = item.Id })*@
+                            @Html.ActionLink("ختم کریں", "Delete", new { id = item.Id })*@
                                 @Html.ActionLink("منتخب کریں", "SelectSymptoms", new { id = item.Id })
                                 <div>
 
@@ -200,6 +201,30 @@
                                 <br />
 
                             }
+                        </div>
+
+                    </div>
+                    <div class="price-gd-bottom">
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="price-grid1 lost">
+                <div class="price-block price-block2 agile">
+                    <div class="price-gd-top pric-clr3">
+                        <i class="fab fa-accusoft"></i>
+                        <div style="color:white; font-style:inherit">
+                           
+                        </div>
+                        <div style="color:white">
+                            <p>
+                                Find : @Html.TextBox("SearchString")
+                                <br/>
+                                <br/>
+                                <input type="submit" value="Search" />
+                            </p>
+
                         </div>
 
                     </div>

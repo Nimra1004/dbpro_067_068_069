@@ -15,8 +15,33 @@ namespace DB55.Controllers
         // GET: Disease
         public ActionResult Index()
         {
-
-            return View();
+            int id = 0;
+            DB55Entities db = new DB55Entities();
+            List<PersonModel> viewlist = new List<PersonModel>();
+            PersonModel obj = new PersonModel();
+            List<Person> list1 = db.People.ToList();
+            string Login = User.Identity.GetUserId();
+            for (int i = 0; i < list1.Count(); i++)
+            {
+                Person req = list1.ElementAt(i);
+                if (req.UserId == Login)
+                {
+                    if(req.Discriminator == 7)
+                    {
+                        id = 1;
+                    }
+                    
+                }
+            }
+            if (id == 0)
+            {
+                ViewBag.message = "SORRY! You couldn't avail this option";
+            }
+            else
+            {
+                return View("Index", "Disease");
+            }
+            return RedirectToAction("Index", "Home");
 
         }
         [HttpGet]

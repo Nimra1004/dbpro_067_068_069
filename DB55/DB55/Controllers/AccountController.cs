@@ -183,7 +183,7 @@ namespace DB55.Controllers
                     {
                         registeruser.Gender = 2;
                     }
-                    registeruser.Discriminator = 5;
+                    registeruser.Discriminator = 7;
                     string login = User.Identity.GetUserId();
                     if (registeruser.UserId == User.Identity.GetUserId())
                     {
@@ -246,13 +246,13 @@ namespace DB55.Controllers
                     registeruser.UserId = userdbmodel.Id;
                     if (model.Gender == "عورت")
                     {
-                        registeruser.Gender = 1;
+                        registeruser.Gender = 2;
                     }
                     else
                     {
-                        registeruser.Gender = 2;
+                        registeruser.Gender = 1;
                     }
-                    registeruser.Discriminator = 3;
+                    registeruser.Discriminator = 5;
                     db.People.Add(registeruser);
                     //viewList.Add(donor);
                     // db.RegisteredUsers.Add(donor);

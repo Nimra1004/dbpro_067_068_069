@@ -97,19 +97,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                             <li>
                                 @Html.ActionLink("صارف", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @style = "color:#fff;" })
-                        </li>
-                        <li>@Html.ActionLink("ڈاکٹر", "DoctorRegister", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @style = "color:#fff;" })</li>
-                        <li>@Html.ActionLink("ایڈمن", "Login", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @style = "color:#fff;" })</li>
+                            </li>
+                            <li>@Html.ActionLink("ڈاکٹر", "DoctorRegister", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @style = "color:#fff;" })</li>
+                            <li>@Html.ActionLink("ایڈمن", "Login", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @style = "color:#fff;" })</li>
 
-                    </ul>
-                </li>
-                <li>
-                    @Html.ActionLink("لاگ ان ", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
-                </li>
+                        </ul>
+                    </li>
+                    <li>
+                        @Html.ActionLink("لاگ ان ", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+                    </li>
 
-            }
+                }
 
                 <li><a href="@Url.Action("Index","Category")">بیماری</a></li>
+                <li><a href="@Url.Action("Export", "MedicineReport")">پیڈی ایف</a></li>
                 <li><a href="@Url.Action("Index","Disease")">ایڈ کریں</a></li>
                 <li><a href="@Url.Action("Index","Home")">تلاش کریں</a></li>
                 <li class="active"><a href="@Url.Action("Index","Home")">ہوم</a></li>
@@ -124,7 +125,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="footer">
         <div class="container">
             <h3><a href="index.html">میڈیکل انسایکلو پیڈیا</a></h3>
-            <p>&copy; @DateTime.Now.Year   جانیے ہر بیماری کے بارے میں</p>
+            <p> @DateTime.Now.Year &copy;  جانیے ہر بیماری کے بارے میں</p>
             <div class="social-icons animated wow bounceInDown" data-wow-duration="1000ms" data-wow-delay="800ms">
                 <ul class="top-links">
                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>

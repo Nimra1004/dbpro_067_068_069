@@ -106,8 +106,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <li id="menu-mensagens" style="width:120px">
                                 <a href="project.html">رپورٹس <i class="fa fa-angle-right" style="float: right; margin-right: -8px; margin-top: 2px;"></i></a>
                                 <ul id="menu-mensagens-sub">
-                                    <li id="menu-mensagens-enviadas" style="width:130px">@Html.ActionLink("ورڈ", "Register", "Account")</li>
-                                    <li id="menu-mensagens-recebidas" style="width:130px">@Html.ActionLink("پیڈی ایف", "Register", "Account")</li>
+                                    <li id="menu-mensagens-enviadas" style="width:130px"><a href="@Url.Action("Export", "PersonReport")">پیڈی ایف</a></li>
+                                    <li id="menu-mensagens-enviadas" style="width:130px"><a href="@Url.Action("ExportDisease", "DoctorDiseaseReport")">پیڈی ایف</a></li>
+                                    
                                 </ul>
                             </li>
                         </ul>

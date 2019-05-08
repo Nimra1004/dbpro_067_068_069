@@ -1124,3 +1124,5 @@ C:\Users\HP\Desktop\TermProject\DB55\DB55\obj\Debug\DB55.csproj.CopyComplete
 C:\Users\HP\Desktop\TermProject\DB55\DB55\obj\Debug\DB55.dll
 C:\Users\HP\Desktop\TermProject\DB55\DB55\obj\Debug\DB55.pdb
 C:\Users\HP\Desktop\TermProject\DB55\DB55\obj\Debug\DB55.csprojAssemblyReference.cache
+C:\Users\HP\Desktop\TermProject\DB55\DB55\obj\Debug\RdlCompile.cache
+C:\Users\HP\Desktop\TermProject\DB55\DB55\obj\Debug\RdlCompile.compiled
